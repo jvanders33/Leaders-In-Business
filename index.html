@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leaders in Business — Strategic Advisory</title>
+<meta name="description" content="Strategic advisory built for real firms, real clients, real conversations. The Strategic Advisory Model makes advisory consistent across your whole firm.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     BRAND TOKENS — matched from the live LIB brand.
+     Change one value here and it cascades through the whole site.
+     ============================================================ */
+  :root{
+    --ink:#1b1b1b;          /* near-black text + dark logo */
+    --ink-deep:#16141c;     /* dark band / footer */
+    --paper:#faf6ef;        /* warm cream background */
+    --paper-2:#ece4d9;      /* greige alt sections */
+    --purple:#5a2be6;       /* primary brand accent */
+    --purple-deep:#4a1fd0;
+    --orange:#f26f1f;       /* secondary / conversion */
+    --orange-deep:#dd5f12;
+    --muted:#46464d;
+    --line:rgba(27,27,27,.14);
+    --radius:16px;
+    --maxw:1180px;
+    --font:"Poppins",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);background:var(--paper);color:var(--ink);line-height:1.55;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  h1,h2,h3{font-weight:600;line-height:1.08;letter-spacing:-.01em;text-transform:lowercase}
+  .dot{width:11px;height:11px;border-radius:50%;background:var(--purple)}
+  .eyebrow{font-weight:600;font-size:.95rem;color:var(--purple);text-transform:lowercase}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:.5em;font-weight:600;font-size:.95rem;
+    padding:.85em 1.5em;border-radius:100px;transition:.25s ease;cursor:pointer;border:2px solid transparent;white-space:nowrap}
+  .btn-primary{background:var(--purple);color:#fff}
+  .btn-primary:hover{background:var(--purple-deep);transform:translateY(-2px)}
+  .btn-ghost{border-color:var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
+  .btn-cta{background:var(--orange);color:#fff}
+  .btn-cta:hover{background:var(--orange-deep);transform:translateY(-2px)}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(250,246,239,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .brand img{height:30px}
+  .nav-links{display:flex;align-items:center;gap:30px;font-weight:500;font-size:.96rem}
+  .nav-links a{position:relative;padding:4px 0}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--purple);transition:width .25s}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .login{font-weight:500;font-size:.95rem}
+  .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+  .hamburger span{width:24px;height:2px;background:var(--ink);transition:.3s}
+  .mobile-menu{display:none}
+
+  /* hero */
+  .hero{position:relative;padding:70px 0 40px}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:50px;align-items:center}
+  .hero h1{font-size:clamp(2.4rem,5vw,4.1rem);max-width:13ch}
+  .hero .rule{width:84px;height:3px;background:var(--ink);margin:26px 0}
+  .hero p.lead{font-size:1.12rem;color:var(--muted);max-width:42ch;margin-bottom:34px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+
+  /* speech-bubble portrait */
+  .bubble{position:relative;border:3px solid var(--purple);border-radius:26px;overflow:hidden;
+    aspect-ratio:1/1.04;background:var(--paper-2);box-shadow:0 30px 70px -34px rgba(90,43,230,.5)}
+  .bubble::after{content:"";position:absolute;left:38px;bottom:-17px;width:30px;height:30px;
+    background:var(--paper);border-left:3px solid var(--purple);border-bottom:3px solid var(--purple);
+    transform:rotate(-45deg);border-bottom-left-radius:6px}
+  .bubble .slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease}
+  .bubble .slide.on{opacity:1}
+  .bubble .slide img{width:100%;height:100%;object-fit:cover}
+  .bubble .scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,12,25,.85) 0%,rgba(15,12,25,.15) 42%,transparent 65%)}
+  .bubble .cap{position:absolute;left:30px;right:30px;bottom:34px;color:#fff;z-index:2}
+  .bubble .cap h3{font-size:clamp(1.7rem,3vw,2.4rem);color:#fff;line-height:1.02}
+  .bubble .cap .who{margin-top:10px;font-size:.98rem;opacity:.92;text-transform:none}
+
+  /* sections */
+  section{position:relative;z-index:2}
+  .pad{padding:92px 0}
+  .center{text-align:center;max-width:820px;margin:0 auto}
+  .center .dot{margin:0 auto 26px}
+  .center h2{font-size:clamp(2rem,4vw,3.2rem)}
+  .center .purple-line{color:var(--purple)}
+  .center p.body{margin-top:24px;color:var(--muted);font-size:1.12rem;max-width:60ch;margin-left:auto;margin-right:auto}
+  .section-head{max-width:740px}
+  .section-head .dot{margin-bottom:18px}
+  .section-head h2{font-size:clamp(1.9rem,3.6vw,2.8rem)}
+  .section-head p{margin-top:16px;color:var(--muted);font-size:1.08rem;max-width:58ch}
+
+  /* pain card drag row */
+  .drag-hint{display:flex;align-items:center;justify-content:center;gap:10px;margin:34px 0 4px;color:var(--muted);
+    font-size:.82rem;font-weight:600;text-transform:lowercase}
+  .drag-hint svg{width:30px;color:var(--purple)}
+  .drag-row{display:flex;gap:22px;overflow-x:auto;padding:26px 28px 30px;cursor:grab;scrollbar-width:none;scroll-snap-type:x proximity}
+  .drag-row::-webkit-scrollbar{display:none}
+  .drag-row.dragging{cursor:grabbing}
+  .pain-card{flex:0 0 304px;scroll-snap-align:start;background:var(--paper);border:3px solid var(--purple);
+    border-radius:20px;padding:28px;user-select:none;position:relative}
+  .pain-card:nth-child(even){border-color:var(--orange)}
+  .pain-card q{font-size:1.18rem;font-weight:500;line-height:1.35;quotes:none;display:block}
+  .pain-card .who{display:flex;align-items:center;gap:12px;margin-top:22px}
+  .pain-card .who img{width:44px;height:44px;border-radius:50%;object-fit:cover;pointer-events:none}
+  .pain-card .who span{font-weight:600;font-size:.86rem;letter-spacing:.06em;color:var(--purple)}
+  .pain-card:nth-child(even) .who span{color:var(--orange)}
+
+  /* shifts grid */
+  .shifts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(184px,1fr));gap:14px;margin-top:48px}
+  .shift{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px;
+    font-size:1.18rem;font-weight:500;line-height:1.2;text-transform:lowercase;transition:.3s;position:relative;overflow:hidden}
+  .shift::before{content:"";position:absolute;left:0;top:0;height:100%;width:5px;background:var(--purple);transform:scaleY(0);transform-origin:bottom;transition:transform .35s}
+  .shift:nth-child(even)::before{background:var(--orange)}
+  .shift:hover{transform:translateY(-4px);box-shadow:0 18px 40px -24px rgba(27,27,27,.4)}
+  .shift:hover::before{transform:scaleY(1)}
+  .shift span{display:block;font-size:.8rem;font-weight:700;color:var(--purple);margin-bottom:10px}
+  .shift:nth-child(even) span{color:var(--orange)}
+
+  /* feature rows */
+  .feature{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:62px 0}
+  .feature.rev .feature-text{order:2}
+  .feature-media{border-radius:var(--radius);overflow:hidden;box-shadow:0 30px 70px -32px rgba(27,27,27,.45);background:var(--paper-2);aspect-ratio:4/3}
+  .feature-media img{width:100%;height:100%;object-fit:cover}
+  .feature-text .dot{margin-bottom:16px}
+  .feature-text h2{font-size:clamp(1.7rem,3vw,2.5rem)}
+  .feature-text p{color:var(--muted);font-size:1.08rem;margin:18px 0 28px;max-width:50ch}
+  .feature-ctas{display:flex;gap:12px;flex-wrap:wrap}
+
+  /* testimonials */
+  .testi-wrap{background:var(--paper-2)}
+  .testi-grid{columns:3;column-gap:22px;margin-top:48px}
+  .testi{break-inside:avoid;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px;margin-bottom:22px}
+  .testi q{font-size:1.04rem;font-weight:400;line-height:1.5;quotes:'"' '"'}
+  .testi .name{margin-top:18px;font-weight:600;font-size:.98rem}
+  .testi .role{font-size:.86rem;color:var(--muted);margin-top:2px}
+
+  /* partners marquee */
+  .partners{text-align:center}
+  .marquee{overflow:hidden;margin-top:42px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+  .marquee-track{display:flex;gap:64px;width:max-content;animation:scroll 26s linear infinite;align-items:center}
+  .marquee:hover .marquee-track{animation-play-state:paused}
+  .marquee img{height:48px;width:auto;object-fit:contain;opacity:.65;filter:grayscale(1);transition:.3s}
+  .marquee img:hover{opacity:1;filter:none}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* quiz CTA band */
+  .cta-band{background:var(--ink-deep);color:var(--paper);border-radius:30px;margin:0 16px;padding:74px 40px;text-align:center;position:relative;overflow:hidden}
+  .cta-band::after{content:"";position:absolute;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(90,43,230,.55),transparent 70%);top:-200px;right:-120px}
+  .cta-band::before{content:"";position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(242,111,31,.4),transparent 70%);bottom:-180px;left:-100px}
+  .cta-band .inner{position:relative;z-index:2}
+  .cta-band .dot{margin:0 auto 22px;background:var(--orange)}
+  .cta-band h2{font-size:clamp(2rem,3.6vw,3rem);max-width:18ch;margin:0 auto 16px}
+  .cta-band p{color:rgba(250,246,239,.78);max-width:50ch;margin:0 auto 30px;font-size:1.08rem}
+
+  /* footer */
+  footer{background:var(--ink-deep);color:var(--paper);padding:76px 0 36px;margin-top:30px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1.4fr;gap:48px}
+  footer .brand img{height:36px;margin-bottom:18px}
+  footer .tag{color:rgba(250,246,239,.72);max-width:34ch;font-size:.98rem}
+  .foot-nav{display:flex;flex-direction:column;gap:12px;font-size:.96rem}
+  .foot-nav a:hover{color:var(--purple)}
+  .foot-news label{font-weight:600;display:block;margin-bottom:6px}
+  .foot-news p{color:rgba(250,246,239,.62);font-size:.9rem;margin-bottom:16px}
+  .news-form{display:flex;gap:8px;flex-wrap:wrap}
+  .news-form input[type=email]{flex:1;min-width:180px;padding:.85em 1em;border-radius:100px;border:1px solid rgba(250,246,239,.25);background:rgba(250,246,239,.06);color:var(--paper);font-size:.95rem;font-family:var(--font)}
+  .news-form input::placeholder{color:rgba(250,246,239,.5)}
+  .hp{position:absolute;left:-9999px}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+    margin-top:54px;padding-top:24px;border-top:1px solid rgba(250,246,239,.14);font-size:.86rem;color:rgba(250,246,239,.6)}
+  .socials{display:flex;gap:16px}
+  .socials a{width:36px;height:36px;border:1px solid rgba(250,246,239,.25);border-radius:50%;display:grid;place-items:center;transition:.25s}
+  .socials a:hover{background:var(--purple);border-color:var(--purple)}
+  .socials svg{width:16px;height:16px}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:900px){
+    .nav-links,.login{display:none}
+    .hamburger{display:flex}
+    .hero-grid{grid-template-columns:1fr;gap:36px}
+    .feature{grid-template-columns:1fr;gap:30px;padding:44px 0}
+    .feature.rev .feature-text{order:0}
+    .testi-grid{columns:1}
+    .foot-grid{grid-template-columns:1fr}
+    .pad{padding:64px 0}
+    .mobile-menu.open{display:flex;flex-direction:column;padding:14px 28px 24px;border-top:1px solid var(--line);background:var(--paper)}
+    .mobile-menu a{padding:12px 0;border-bottom:1px solid var(--line);font-weight:500}
+  }
+  @media(max-width:560px){.cta-band{margin:0 6px;border-radius:22px}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="https://leadersinbusiness.com.au/">
+      <img src="https://leadersinbusiness.com.au/wp-content/uploads/2023/06/logo.svg" alt="Leaders in Business">
+    </a>
+    <nav class="nav-links">
+      <a href="https://leadersinbusiness.com.au/our-program/">Our Program</a>
+      <a href="https://leadersinbusiness.com.au/pricing/">Pricing</a>
+      <a href="https://leadersinbusiness.com.au/get-started/">Get Started</a>
+      <a href="https://leadersinbusiness.com.au/resources/">Resources</a>
+      <a href="https://leadersinbusiness.com.au/about/">About</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="login" href="https://platform.leadersinbusiness.com.au/">Login</a>
+      <a class="btn btn-ghost" href="https://leadersinbusiness.com.au/contact-us/">Contact Us</a>
+      <button class="hamburger" aria-label="Menu" onclick="document.getElementById('mm').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mm">
+    <a href="https://leadersinbusiness.com.au/our-program/">Our Program</a>
+    <a href="https://leadersinbusiness.com.au/pricing/">Pricing</a>
+    <a href="https://leadersinbusiness.com.au/get-started/">Get Started</a>
+    <a href="https://leadersinbusiness.com.au/resources/">Resources</a>
+    <a href="https://leadersinbusiness.com.au/about/">About</a>
+    <a href="https://platform.leadersinbusiness.com.au/">Login</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <h1 class="reveal">strategic advisory built for real firms, real clients, real conversations.</h1>
+      <div class="rule reveal"></div>
+      <p class="lead reveal">Without structure, advisory stays informal — hard to price, hard to repeat, impossible to embed. Leaders in Business gives your whole firm one consistent model.</p>
+      <div class="hero-ctas reveal">
+        <a class="btn btn-primary" href="https://leadersinbusiness.com.au/our-program/">see how the model works</a>
+        <a class="btn btn-ghost" href="https://advisoryreadinessquiz.scoreapp.com/">check advisory readiness</a>
+      </div>
+    </div>
+    <div class="hero-art reveal">
+      <div class="bubble" id="bubble">
+        <div class="slide on">
+          <img src="https://leadersinbusiness.com.au/wp-content/uploads/2026/02/LIB_Game-Changer_Tim_accountant-copy.webp" alt="Game changer">
+        </div>
+        <div class="slide">
+          <img src="https://leadersinbusiness.com.au/wp-content/uploads/2026/02/LIB_Game-Changer_Carissa_Accountant-copyB.webp" alt="Game changer">
+        </div>
+        <div class="slide">
+          <img src="https://leadersinbusiness.com.au/wp-content/uploads/2026/02/LIB_Game-Changer_Sonia_accountant-copy.webp" alt="Game changer">
+        </div>
+        <div class="slide">
+          <img src="https://leadersinbusiness.com.au/wp-content/uploads/2026/02/LIB_Game-Changer_Simon_accountant-copy.webp" alt="Game changer">
+        </div>
+        <div class="scrim"></div>
+        <div class="cap">
+          <h3>an absolute game-changer</h3>
+          <div class="who" id="bubbleWho">Tim</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVISORY WITHOUT OVERWHELM -->
+<section class="pad">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="dot"></div>
+      <h2>advisory without overwhelm?<br><span class="purple-line">get up and running fast</span></h2>
+      <p class="body">Without structure, advisory stays informal, hard to price, hard to repeat and impossible to embed. Leaders in Business gives firms the Strategic Advisory Model, so advisory becomes consistent across your whole firm.</p>
+    </div>
+    <div class="drag-hint reveal">
+      <svg viewBox="0 0 60 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 10h44M8 10l6-5M8 10l6 5M52 10l-6-5M52 10l-6 5"/></svg>
+      scroll &amp; drag
+    </div>
+    <div class="drag-row" id="dragRow">
+      <div class="pain-card"><q>Most of our advisory process lives in my head as the partner.</q><div class="who"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2023/07/Mark.jpg" alt=""><span>MARK</span></div></div>
+      <div class="pain-card"><q>I know advisory is valuable for my client — I just struggle to explain why.</q><div class="who"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2023/07/Jen1.jpg" alt=""><span>JEN</span></div></div>
+      <div class="pain-card"><q>Every advisory conversation feels different and I'm kind of making it up as I go.</q><div class="who"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2023/07/EmilyWeb-2.jpg" alt=""><span>EMILY</span></div></div>
+      <div class="pain-card"><q>We focus on the numbers, but we don't know how to get to what's really driving decisions.</q><div class="who"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2023/07/DavidWeb.jpg" alt=""><span>DAVID</span></div></div>
+      <div class="pain-card"><q>I hold back from asking bigger questions because I don't want to look unprepared.</q><div class="who"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2023/07/Carlos.jpg" alt=""><span>CARLOS</span></div></div>
+      <div class="pain-card"><q>Pricing advisory still feels uncomfortable.</q><div class="who"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2023/07/Kris.jpg" alt=""><span>KRIS</span></div></div>
+      <div class="pain-card"><q>I want my team involved in advisory — I just don't feel they're ready yet.</q><div class="who"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2023/07/James1.jpg" alt=""><span>JAMES</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SHIFTS -->
+<section class="pad" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="dot"></div>
+      <h2>what changes when advisory runs on the strategic advisory model</h2>
+    </div>
+    <div class="shifts-grid">
+      <div class="shift reveal"><span>01</span>stop relying on instinct</div>
+      <div class="shift reveal"><span>02</span>turn insight into action for your clients</div>
+      <div class="shift reveal"><span>03</span>step beyond compliance safely</div>
+      <div class="shift reveal"><span>04</span>run structured sessions with a clear agenda</div>
+      <div class="shift reveal"><span>05</span>enable your whole team</div>
+      <div class="shift reveal"><span>06</span>share capability beyond partners</div>
+      <div class="shift reveal"><span>07</span>price advisory confidently</div>
+      <div class="shift reveal"><span>08</span>build recurring advisory revenue</div>
+      <div class="shift reveal"><span>09</span>make advisory repeatable</div>
+      <div class="shift reveal"><span>10</span>scale with confidence</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="wrap">
+  <div class="feature">
+    <div class="feature-media reveal"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2025/05/photo-3.png" alt="The Advisory Workspace"></div>
+    <div class="feature-text reveal">
+      <div class="dot"></div>
+      <h2>the workspace behind every conversation</h2>
+      <p>The Advisory Workspace is where firms deliver the Strategic Advisory Model — guiding advisory before, during and after every client meeting, from diagnostics and planning through to actions and accountability.</p>
+      <div class="feature-ctas">
+        <a class="btn btn-primary" href="https://leadersinbusiness.com.au/our-program/">see the model</a>
+        <a class="btn btn-ghost" href="https://marketing.leadersinbusiness.com.au/book-a-call">book a call</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature rev">
+    <div class="feature-text reveal">
+      <div class="dot"></div>
+      <h2>training that gets you delivering fast</h2>
+      <p>Advisory Certification Training helps accountants build the confidence and capability to deliver the Strategic Advisory Model in real client conversations.</p>
+      <div class="feature-ctas">
+        <a class="btn btn-primary" href="https://leadersinbusiness.com.au/pricing/">view training options</a>
+        <a class="btn btn-ghost" href="https://marketing.leadersinbusiness.com.au/book-a-call">book a call</a>
+      </div>
+    </div>
+    <div class="feature-media reveal"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2025/05/photo-2.png" alt="Advisory training"></div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-media reveal"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2025/05/photo-1.png" alt="Advisory at scale"></div>
+    <div class="feature-text reveal">
+      <div class="dot"></div>
+      <h2>advisory designed to scale across your firm</h2>
+      <p>Advisory that can be shared, delegated and delivered across your team — without losing consistency, confidence or quality.</p>
+      <div class="feature-ctas">
+        <a class="btn btn-primary" href="https://leadersinbusiness.com.au/our-program/">see the model</a>
+        <a class="btn btn-ghost" href="https://marketing.leadersinbusiness.com.au/book-a-call">book a call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-wrap pad">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="dot"></div>
+      <h2>from compliance to confident advisory</h2>
+      <p class="body">What happens when accountants use structure, not instinct, to deliver advisory.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi reveal"><q>I've been advising clients for 30 years, but doing it better is a big driver for us — to get some satisfaction out of it and take our clients to a better result.</q><div class="name">Peter Knights</div><div class="role">Principal, Knights Norfolk</div></div>
+      <div class="testi reveal"><q>Leaders in Business offer the platform, framework and training support for accountants to effectively support their business clients with this important service.</q><div class="name">Stephen McHenry CA</div><div class="role">Founding Partner, McHenry Partners</div></div>
+      <div class="testi reveal"><q>The framework and structure have made such a difference. It's helped me show up with more clarity, give better advice, and really back the small business legends I work with.</q><div class="name">Ellena Amanatidis</div><div class="role">Senior Client Advisor, SEIVA</div></div>
+      <div class="testi reveal"><q>The structure I've learned has helped me piece together all the different pieces in my mind and put them in a logical sense — to package up and deliver to the client.</q><div class="name">Kate Slater</div><div class="role">CEO / Senior Client Manager, Camtech &amp; Slater Financial Group</div></div>
+      <div class="testi reveal"><q>The fact that Brent is giving access to this content is a testament to his desire for small businesses to succeed and develop a competitive advantage.</q><div class="name">Chris Mullins</div><div class="role">Principal, O'Brien Accountants &amp; Advisors</div></div>
+      <div class="testi reveal"><q>As business owners, we're already really busy. We don't have time to think about how to structure content, programs and software. This is exactly what this program caters for.</q><div class="name">Sonny De Silva</div><div class="role">Partner, DS Advisory</div></div>
+      <div class="testi reveal"><q>It's definitely put the structure in so that we can provide clients specific outcomes and specific actions to meet their goals, vision and purpose.</q><div class="name">Liz Shimmin</div><div class="role">CEO, Bluebird Accounting</div></div>
+      <div class="testi reveal"><q>We can have structure around a product — we're actually valuing our services rather than just giving away advice and tools for free.</q><div class="name">Rachel Crowther</div><div class="role">Director, Mintco Business Solutions</div></div>
+      <div class="testi reveal"><q>The first thing I'm going to do is run the process through my own business — there are big parts I hadn't covered. I already have clients in mind I can start with straight away.</q><div class="name">Miranda Bravo Holland</div><div class="role">Director, Bravo Accountants</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="pad partners">
+  <div class="wrap center reveal">
+    <div class="dot" style="margin:0 auto 18px"></div>
+    <h2 style="font-size:clamp(1.7rem,3vw,2.5rem)">join australia's leading strategic advisory network</h2>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <img src="https://leadersinbusiness.com.au/wp-content/uploads/2025/05/CPAA_Logo_RGB.png" alt="CPA Australia">
+      <img src="https://leadersinbusiness.com.au/wp-content/uploads/2023/10/accountantsdaily-logo-002.png" alt="Accountants Daily">
+      <img src="https://leadersinbusiness.com.au/wp-content/uploads/2023/10/Untitled-design-4-scaled.png" alt="Partner">
+      <img src="https://leadersinbusiness.com.au/wp-content/uploads/2025/05/CPAA_Logo_RGB.png" alt="CPA Australia">
+      <img src="https://leadersinbusiness.com.au/wp-content/uploads/2023/10/accountantsdaily-logo-002.png" alt="Accountants Daily">
+      <img src="https://leadersinbusiness.com.au/wp-content/uploads/2023/10/Untitled-design-4-scaled.png" alt="Partner">
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ CTA -->
+<section style="padding:20px 0 70px">
+  <div class="cta-band">
+    <div class="inner">
+      <div class="dot"></div>
+      <h2>get your advisory readiness score</h2>
+      <p>See where structure, clarity and confidence will make the biggest difference in your firm.</p>
+      <a class="btn btn-cta" href="https://advisoryreadinessquiz.scoreapp.com/">complete the quiz</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="brand-col">
+        <a class="brand" href="https://leadersinbusiness.com.au/"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2023/06/leaders-in-business-logo-1.svg" alt="Leaders in Business"></a>
+        <p class="tag">A structured advisory program for those who give a damn about small businesses.</p>
+      </div>
+      <div class="foot-nav">
+        <a href="https://leadersinbusiness.com.au/our-program/">Our Program</a>
+        <a href="https://leadersinbusiness.com.au/pricing/">Pricing</a>
+        <a href="https://leadersinbusiness.com.au/get-started/level-1-training/">Level 1 Training</a>
+        <a href="https://leadersinbusiness.com.au/get-started/level-2-training/">Level 2 Training</a>
+        <a href="https://leadersinbusiness.com.au/about/">About</a>
+        <a href="https://leadersinbusiness.com.au/resources/">Resources</a>
+        <a href="https://leadersinbusiness.com.au/contact-us/">Contact</a>
+      </div>
+      <div class="foot-news">
+        <label for="email">Free Learning</label>
+        <p>Practical insights on advisory, strategy and firm leadership — delivered without the noise.</p>
+        <!-- NOTE: wire this to your email tool (Formspree / Netlify Forms / your ESP) before go-live -->
+        <form class="news-form" onsubmit="this.querySelector('input[type=email]').value='Thanks — we will be in touch';return false;">
+          <input type="text" class="hp" name="hp_name" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="email" id="email" placeholder="Your email" required>
+          <button class="btn btn-cta" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Leaders in Business</span>
+      <div class="socials">
+        <a href="https://www.facebook.com/leadersinbusinessau" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H9v3h2v7h3v-7h2.5l.5-3H14v-1.5c0-.6.3-1 1-1z"/></svg></a>
+        <a href="https://www.instagram.com/leadersinbusiness" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.linkedin.com/company/leadersinbusiness" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 9v9H3V9h3zM4.5 3a1.7 1.7 0 110 3.4 1.7 1.7 0 010-3.4zM21 18h-3v-4.7c0-1.2-.4-2-1.5-2-.8 0-1.3.6-1.5 1.1-.1.2-.1.5-.1.7V18h-3V9h3v1.3c.4-.6 1.1-1.5 2.8-1.5 2 0 3.5 1.3 3.5 4.2V18z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* rotating speech-bubble portraits */
+  (function(){
+    const slides=document.querySelectorAll('#bubble .slide');
+    const names=['Tim','Carissa','Sonia','Simon'];
+    const who=document.getElementById('bubbleWho');
+    let i=0;
+    setInterval(function(){
+      slides[i].classList.remove('on');
+      i=(i+1)%slides.length;
+      slides[i].classList.add('on');
+      if(who)who.textContent=names[i];
+    },3500);
+  })();
+
+  /* drag-to-scroll pain row */
+  (function(){
+    const row=document.getElementById('dragRow');
+    if(!row)return;
+    let down=false,startX,scroll;
+    row.addEventListener('mousedown',function(e){down=true;row.classList.add('dragging');startX=e.pageX;scroll=row.scrollLeft;});
+    window.addEventListener('mouseup',function(){down=false;row.classList.remove('dragging');});
+    row.addEventListener('mouseleave',function(){down=false;row.classList.remove('dragging');});
+    row.addEventListener('mousemove',function(e){if(!down)return;e.preventDefault();row.scrollLeft=scroll-(e.pageX-startX)*1.4;});
+  })();
+
+  /* scroll reveal */
+  (function(){
+    const io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  })();
+</script>
+</body>
+</html>
