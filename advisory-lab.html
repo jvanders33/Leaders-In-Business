@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advisory Lab — One program, three ways in | Leaders In Business</title>
+<meta name="description" content="Advisory Lab: one program, three ways in. Starter $500/month, Activate $1,000/month, Enterprise $20,000 + $2,000/month. Compare tiers, see the onboarding path and the value of one advisor — $270,000 per year.">
+<meta property="og:title" content="Advisory Lab — One program, three ways in">
+<meta property="og:description" content="The same outcome at every tier. The tiers only change how much of the Skills Pathway we do with you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+/* ---- Advisory Lab page ---- */
+.tier-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px;display:flex;flex-direction:column;position:relative;transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
+.tier-card:hover{transform:translateY(-5px);box-shadow:var(--sh-2)}
+.tier-card.featured{border:2px solid var(--purple);box-shadow:var(--sh-purple)}
+.tier-flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);white-space:nowrap}
+.tier-name{font-family:var(--font);font-size:26px;font-weight:700;letter-spacing:-.028em;margin:14px 0 4px}
+.tier-for{font-size:13.5px;color:var(--ink-mute);line-height:1.5;min-height:42px}
+.tier-price{font-family:var(--font);font-size:clamp(34px,3.6vw,46px);font-weight:700;letter-spacing:-.04em;line-height:1;margin:18px 0 4px;color:var(--purple)}
+.tier-per{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute)}
+.tier-blurb{font-size:14.3px;color:var(--ink-soft);line-height:1.55;margin:16px 0 18px}
+.tier-inc{list-style:none;display:grid;gap:10px;margin-bottom:20px}
+.tier-inc li{display:flex;gap:10px;align-items:flex-start;font-size:13.8px;line-height:1.45}
+.tier-inc .tick{width:20px;height:20px;border-radius:50%;background:var(--purple);color:#fff;display:grid;place-items:center;flex:none;margin-top:1px}
+.tier-inc .tick svg{width:10px;height:10px}
+.tier-who{background:var(--cream);border-radius:13px;padding:15px 17px;font-size:13px;color:var(--ink-soft);line-height:1.55;margin-bottom:18px}
+.tier-who b{color:var(--ink-2)}
+.tier-seat{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:11.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-mute);display:flex;justify-content:space-between;gap:10px}
+
+.cmp-wrap{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden}
+.cmp-wrap .tbl th,.cmp-wrap .tbl td{padding:15px 20px}
+.cmp-wrap .tbl thead th{background:var(--ink-2);color:#fff;font-size:11px}
+.cmp-wrap .tbl td:not(:first-child),.cmp-wrap .tbl th:not(:first-child){text-align:center}
+.cmp-wrap .tbl tbody tr:last-child td{border-bottom:0}
+.cmp-hl{background:var(--purple-soft)!important}
+
+.layer-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.layer{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:28px}
+.layer .mono-label{color:var(--purple);font-weight:700}
+.layer-t{font-family:var(--font);font-size:21px;font-weight:700;letter-spacing:-.024em;margin:9px 0 5px}
+.layer-s{font-size:14px;font-weight:600;color:var(--orange-deep);letter-spacing:-.012em;margin-bottom:10px}
+.layer ul{list-style:none;display:grid;gap:8px;margin-top:12px}
+.layer ul li{display:flex;gap:9px;align-items:flex-start;font-size:13.3px;line-height:1.45}
+.layer ul .dot{width:7px;height:7px;border-radius:50%;background:var(--sun);flex:none;margin-top:6px}
+
+.onb-step{display:flex;gap:18px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--line)}
+.onb-step:last-child{border-bottom:0}
+.onb-n{width:42px;height:42px;border-radius:12px;background:var(--purple-soft);color:var(--purple);display:grid;place-items:center;font-family:var(--font);font-size:15px;font-weight:700;flex:none}
+.onb-step:nth-child(even) .onb-n{background:var(--orange-soft);color:var(--orange-deep)}
+.onb-t{font-size:17px;font-weight:700;letter-spacing:-.018em}
+.onb-d{font-size:14px;color:var(--ink-soft);line-height:1.55;margin-top:2px}
+
+.value-block{background:var(--purple);border-radius:var(--radius-lg);color:#fff;padding:clamp(32px,4vw,56px);position:relative;overflow:hidden}
+.value-block::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(255,190,68,.34),transparent 66%)}
+.value-block > *{position:relative;z-index:1}
+.vm-num{font-family:var(--font);font-size:clamp(56px,10vw,120px);font-weight:700;letter-spacing:-.05em;line-height:.9;color:#fff}
+.vm-num .u{color:var(--sun)}
+.vm-cap{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lilac);margin-top:10px}
+.value-table{width:100%;border-collapse:collapse;margin-top:26px;font-size:15px}
+.value-table th{text-align:left;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lilac);padding:10px 0;border-bottom:1px solid rgba(255,255,255,.22)}
+.value-table td{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.13);color:#fff}
+.value-table td:last-child{text-align:right;font-family:var(--font);font-weight:700;font-size:17px;letter-spacing:-.02em}
+.value-table tr.total td{border-bottom:0;border-top:2px solid var(--sun);font-size:19px;color:var(--sun)}
+.mult-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+.mult{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:15px;padding:18px}
+.mult .x{font-family:var(--font);font-size:34px;font-weight:700;letter-spacing:-.035em;color:var(--sun);line-height:1}
+.mult .k{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#fff;margin-top:7px}
+.mult .d{font-size:11.5px;color:var(--lilac);line-height:1.45;margin-top:3px}
+
+.faq-item{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;margin-bottom:12px}
+.faq-q{font-size:16.5px;font-weight:700;letter-spacing:-.018em;margin-bottom:7px;display:flex;gap:11px;align-items:flex-start}
+.faq-q .qm{width:24px;height:24px;border-radius:50%;background:var(--purple);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;flex:none}
+.faq-a{font-size:14.5px;color:var(--ink-soft);line-height:1.6;padding-left:35px}
+
+@media (max-width:1024px){
+  .layer-row{grid-template-columns:1fr}
+  .mult-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .mult-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="wrap nav">
+    <a href="index.html" class="brand" aria-label="Leaders In Business home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2 3 7v6c0 5 3.8 8.2 9 9 5.2-.8 9-4 9-9V7z"/><path d="M9 12l2 2 4-4"/>
+        </svg>
+      </span>
+      <span>
+        <span class="brand-name">Leaders in <span class="lo">Business</span></span>
+        <span class="brand-tag">Making advisory happen</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <div class="nav-item">
+        <a href="platform.html" class="nav-link">Platform
+          <svg class="caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
+        </a>
+        <div class="mega">
+          <div class="mega-grid">
+            <a class="mega-link" href="platform.html">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+              <span><span class="mega-t">The Advisory Workspace <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">One connected environment for every client conversation</span></span>
+            </a>
+            <a class="mega-link" href="platform.html#modules">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span>
+              <span><span class="mega-t">Six modules <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">Discovery, Insights, Goals, Actions, AI, Meetings</span></span>
+            </a>
+            <a class="mega-link" href="platform.html#mike">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg></span>
+              <span><span class="mega-t">MIKE, your AI co-pilot <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">Session prep, Action Plans, progress tracking</span></span>
+            </a>
+            <a class="mega-link" href="platform.html#benchmarking">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+              <span><span class="mega-t">SME benchmarking <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">Aggregated insight across the network</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="advisory-lab.html" class="nav-link">Advisory Lab
+          <svg class="caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
+        </a>
+        <div class="mega">
+          <div class="mega-grid">
+            <a class="mega-link" href="advisory-lab.html">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7v6c0 5 3.8 8.2 9 9 5.2-.8 9-4 9-9V7z"/></svg></span>
+              <span><span class="mega-t">The offer <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">One program, three ways in</span></span>
+            </a>
+            <a class="mega-link" href="advisory-lab.html#compare">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2V5a2 2 0 00-2-2zM19 3h-4a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2V5a2 2 0 00-2-2zM9 13H5a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2v-4a2 2 0 00-2-2zM19 13h-4a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2v-4a2 2 0 00-2-2z"/></svg></span>
+              <span><span class="mega-t">Compare tiers <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">What's in Starter, Activate and Enterprise</span></span>
+            </a>
+            <a class="mega-link" href="advisory-lab.html#value">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>
+              <span><span class="mega-t">The value model <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">$270k per advisor, per year</span></span>
+            </a>
+            <a class="mega-link" href="advisory-lab.html#onboarding">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></span>
+              <span><span class="mega-t">Onboarding <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">Booked in before you can drift</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <a href="method.html" class="nav-link">Method</a>
+      <a href="results.html" class="nav-link">Results</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="https://advisoryreadinessquiz.scoreapp.com/" class="btn btn-ghost btn-sm">Readiness quiz</a>
+      <a href="https://marketing.leadersinbusiness.com.au/book-a-call" class="btn btn-purple btn-sm">Book a demo</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mm-group">
+      <div class="mm-label">Platform</div>
+      <a class="mm-link" href="platform.html">The Advisory Workspace<small>One connected environment</small></a>
+      <a class="mm-link" href="platform.html#modules">Six modules<small>Discovery to Meetings</small></a>
+      <a class="mm-link" href="platform.html#mike">MIKE, your AI co-pilot<small>Prep, plans, tracking</small></a>
+    </div>
+    <div class="mm-group">
+      <div class="mm-label">Advisory Lab</div>
+      <a class="mm-link" href="advisory-lab.html">The offer<small>One program, three ways in</small></a>
+      <a class="mm-link" href="advisory-lab.html#compare">Compare tiers<small>Starter · Activate · Enterprise</small></a>
+      <a class="mm-link" href="advisory-lab.html#value">The value model<small>$270k per advisor, per year</small></a>
+    </div>
+    <div class="mm-group">
+      <div class="mm-label">Company</div>
+      <a class="mm-link" href="method.html">Method<small>The 30-day path</small></a>
+      <a class="mm-link" href="results.html">Results<small>Proof and the model</small></a>
+      <a class="mm-link" href="about.html">About<small>Built in practice</small></a>
+      <a class="mm-link" href="contact.html">Contact<small>Book a demo</small></a>
+    </div>
+    <a href="https://marketing.leadersinbusiness.com.au/book-a-call" class="btn btn-purple btn-lg btn-block" style="margin-top:10px">Book a demo</a>
+    <a href="https://advisoryreadinessquiz.scoreapp.com/" class="btn btn-ghost btn-lg btn-block" style="margin-top:10px">Take the readiness quiz</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="crumbs"><a href="index.html">Home</a><span class="sep">/</span>Advisory Lab</div>
+      <div class="eyebrow on-dark">Advisory Lab</div>
+      <h1>One program. <em>Three ways in.</em></h1>
+      <p class="lead">The same outcome at every tier. The tiers only change how much of the Skills
+        Pathway we do with you — the workspace, the method and the community come with all of them.</p>
+    </div>
+  </section>
+
+  <!-- TIER CARDS -->
+  <section class="sec-pad" id="tiers">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <div class="eyebrow center">Pick what works for your firm</div>
+        <h2 class="h-sec" style="max-width:22ch">Three tiers. The same operating system.</h2>
+      </div>
+
+      <div class="grid-3">
+        <!-- STARTER -->
+        <div class="tier-card reveal">
+          <span class="pill">Self-starters</span>
+          <div class="tier-name">Starter</div>
+          <p class="tier-for">Solo operators and small firms who just need the system &amp; process.</p>
+          <div class="tier-price">$500</div>
+          <div class="tier-per">per month</div>
+          <p class="tier-blurb">Confident people who already know what they want and just need the system.
+            You do it yourself — we onboard you.</p>
+          <ul class="tier-inc">
+            <li><span class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 6l3 3 5-6"/></svg></span>Advisory Workspace licence — 1–2 seats, MIKE and the full method</li>
+            <li><span class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 6l3 3 5-6"/></svg></span>Program Onboarding with a LIB Advisor</li>
+            <li><span class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 6l3 3 5-6"/></svg></span>Monthly Masterclass — learning for everyone</li>
+            <li><span class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 6l3 3 5-6"/></svg></span>Community WhatsApp — members only</li>
+          </ul>
+          <div class="tier-who"><b>Who it's for:</b> self-starters. No coaching, no accountability program —
+            videos and reference material live in the workspace. Upgrade to Activate at any time.</div>
+          <div class="tier-seat"><span>Seats</span><span>1–2</span></div>
+          <a href="https://marketing.leadersinbusiness.com.au/book-a-call" class="btn btn-ghost btn-block" style="margin-top:16px">Book a demo</a>
+        </div>
+
+        <!-- ACTIVATE -->
+        <div class="tier-card featured reveal d1">
+          <span class="tier-flag pill hot">Most popular</span>
+          <span class="pill hot" style="visibility:hidden">x</span>
+          <div class="tier-name">Activate</div>
+          <p class="tier-for">Solo and small firms that want help getting going. Where we want most people.</p>
+          <div class="tier-price">$1,000</div>
+          <div class="tier-per">per month · 12 months</div>
+          <p class="tier-blurb">We unlock your capacity and get you delivering. Two half-days up front,
+            plus a one-on-one strategy session. Up and running within 90 days.</p>
+          <ul class="tier-inc">
+            <li><span class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 6l3 3 5-6"/></svg></span>Everything in Starter</li>
+            <li><span class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 6l3 3 5-6"/></svg></span>Monthly group coaching program</li>
+            <li><span class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 6l3 3 5-6"/></svg></span>Plan for your own business — Business by Design</li>
+            <li><span class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 6l3 3 5-6"/></svg></span>Advisory Method training, applied on a real client</li>
+          </ul>
+          <div class="tier-who"><b>Who it's for:</b> firms ready to get activated. Then Elevate — the monthly
+            accountability group with Brent, on the 1st of every month. Cohorts start quarterly; first
+            cohort 1 Feb 2027, online, any state.</div>
+          <div class="tier-seat"><span>Seats</span><span>1–2</span></div>
+          <a href="https://marketing.leadersinbusiness.com.au/book-a-call" class="btn btn-purple btn-block" style="margin-top:16px">Book a demo
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+          </a>
+        </div>
+
+        <!-- ENTERPRISE -->
+        <div class="tier-card reveal d2">
+          <span class="pill lilac">Whole firm</span>
+          <div class="tier-name">Enterprise</div>
+          <p class="tier-for">Boutique and mid-tier firms moving the whole team to advisory-led.</p>
+          <div class="tier-price">$20,000</div>
+          <div class="tier-per">plus $2,000 per month</div>
+          <p class="tier-blurb">We come to you. The team is immersed in the firm's own clients and walks
+            out with a clear plan — then we embed it.</p>
+          <ul class="tier-inc">
+            <li><span class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 6l3 3 5-6"/></svg></span>Firm-wide workspace access</li>
+            <li><span class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 6l3 3 5-6"/></svg></span>Two-day in-house training</li>
+            <li><span class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 6l3 3 5-6"/></svg></span>90-day plan embedded in the firm</li>
+            <li><span class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 6l3 3 5-6"/></svg></span>Bespoke support</li>
+          </ul>
+          <div class="tier-who"><b>Who it's for:</b> the director has decided to go advisory-led and wants half
+            the team doing the work. This is what we already do with DFK and Lumos — nothing new to build.</div>
+          <div class="tier-seat"><span>Seats</span><span>Up to 20</span></div>
+          <a href="https://marketing.leadersinbusiness.com.au/book-a-call" class="btn btn-ghost btn-block" style="margin-top:16px">Book a demo</a>
+        </div>
+      </div>
+
+      <p class="lead reveal" style="margin-top:22px;font-size:14px;color:var(--ink-mute)">
+        Extra seats on Starter and Activate are priced per seat — ask us for the current rate.
+        Enterprise is limited to 20 users.
+      </p>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="sec-pad-sm band-cream" id="compare">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Compare</div>
+        <h2 class="h-sec">What's in each tier.</h2>
+      </div>
+      <div class="cmp-wrap reveal">
+        <div class="tbl-scroll">
+          <table class="tbl">
+            <thead><tr><th>What's included</th><th>Starter</th><th>Activate</th><th>Enterprise</th></tr></thead>
+            <tbody>
+              <tr><td>Advisory Workspace</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td>Business Hub and SME benchmarking</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td>Onboarding</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td>Monthly masterclass, community, partner access</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td>Quarterly events, Annual Summit</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td>Plan for your own business</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td>Capacity review and action plan</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td>Advisory Method training</td><td>Self-serve</td><td>Group</td><td>In-house</td></tr>
+              <tr><td>Elevate monthly group with Brent</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td>90-day plan</td><td class="no">—</td><td class="yes">✓</td><td>Embedded in firm</td></tr>
+              <tr><td>Bespoke support</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+              <tr><td>Seats</td><td>1–2</td><td>1–2</td><td>Up to 20</td></tr>
+              <tr class="cmp-hl"><td><b>Investment</b></td><td><b>$500 / mo</b></td><td><b>$1,000 / mo</b></td><td><b>$20k + $2,000 / mo</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE LAYERS -->
+  <section class="sec-pad" id="layers">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">What's involved</div>
+        <h2 class="h-sec">Three things working together, in every tier.</h2>
+        <p class="lead">Not a course. Not a subscription to a tool. A membership, not a fixed-term
+          program — it runs for as long as you're licensed.</p>
+      </div>
+
+      <div class="layer-row">
+        <div class="layer reveal">
+          <div class="mono-label">The digital engine</div>
+          <div class="layer-t">Advisory Workspace</div>
+          <div class="layer-s">Where strategic advisory happens.</div>
+          <ul>
+            <li><span class="dot"></span>Advisor Dashboard — every client, session, action and outcome</li>
+            <li><span class="dot"></span>Diagnostic Engine across leadership, growth, finance and operations</li>
+            <li><span class="dot"></span>MIKE, your AI co-pilot — session prep, Action Plans, progress tracking</li>
+            <li><span class="dot"></span>Client Actions — shared plans and accountability</li>
+            <li><span class="dot"></span>Aggregated SME benchmarking across the network</li>
+          </ul>
+        </div>
+
+        <div class="layer reveal d1">
+          <div class="mono-label">The skills pathway</div>
+          <div class="layer-t">Advisory Activation</div>
+          <div class="layer-s">The capability that gets you delivering faster.</div>
+          <ul>
+            <li><span class="dot"></span>Onboarding and the Advisory Method, every tier</li>
+            <li><span class="dot"></span>Group coaching program (Activate)</li>
+            <li><span class="dot"></span>Two-day in-house team training (Enterprise)</li>
+            <li><span class="dot"></span>Business Hub: templates, worksheets, video content</li>
+          </ul>
+        </div>
+
+        <div class="layer reveal d2">
+          <div class="mono-label">The community layer</div>
+          <div class="layer-t">Advisory Club</div>
+          <div class="layer-s">The network that keeps you sharp.</div>
+          <ul>
+            <li><span class="dot"></span>Monthly masterclasses and method refreshers</li>
+            <li><span class="dot"></span>Elevate: monthly accountability group with Brent</li>
+            <li><span class="dot"></span>Quarterly face-to-face events, Annual Summit, Pitch Tank</li>
+            <li><span class="dot"></span>Community WhatsApp and vetted peer network</li>
+            <li><span class="dot"></span>Specialist partner access: capacity, mindset, HR, media, tech, CPA Australia</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout purple reveal" style="margin-top:26px">
+        <strong>A membership, not a fixed-term program.</strong> It runs for as long as you're licensed.
+        The tiers only change how much of the Skills Pathway we do with you.
+      </div>
+    </div>
+  </section>
+
+  <!-- ONBOARDING -->
+  <section class="sec-pad band-cream" id="onboarding">
+    <div class="wrap split">
+      <div class="reveal">
+        <div class="eyebrow">Onboarding · every tier</div>
+        <h2 class="h-sec">Onboarding booked in before they can drift.</h2>
+        <p class="lead">We don't leave implementation to chance. There's an exact path from signup to
+          your first real client — and every step is booked before the last one ends.</p>
+        <div class="callout sun" style="margin-top:24px">
+          <strong>Demos convert.</strong> Every tier starts with a conversation where we look at your
+          firm, not a slide deck.
+        </div>
+        <div style="margin-top:24px">
+          <a href="https://marketing.leadersinbusiness.com.au/book-a-call" class="btn btn-purple">Book a demo
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal d2">
+        <div class="onb-step"><div class="onb-n">1</div><div><div class="onb-t">Sign up</div><p class="onb-d">Choose your tier. You're in the system and licensed the same day.</p></div></div>
+        <div class="onb-step"><div class="onb-n">2</div><div><div class="onb-t">Call within minutes</div><p class="onb-d">A LIB Advisor reaches out. No waiting, no gap to lose momentum.</p></div></div>
+        <div class="onb-step"><div class="onb-n">3</div><div><div class="onb-t">Session 1: induction</div><p class="onb-d">Induction on the program and the workspace, end to end.</p></div></div>
+        <div class="onb-step"><div class="onb-n">4</div><div><div class="onb-t">Session 2 booked</div><p class="onb-d">Booked before you hang up. The next step is already in the diary.</p></div></div>
+        <div class="onb-step"><div class="onb-n">5</div><div><div class="onb-t">Training parts 1–3</div><p class="onb-d">Get the method down before you take it to a client.</p></div></div>
+        <div class="onb-step"><div class="onb-n">6</div><div><div class="onb-t">First real client</div><p class="onb-d">You run the method on a real client — not a mock firm.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE MODEL -->
+  <section class="sec-pad-sm" id="value">
+    <div class="wrap">
+      <div class="value-block reveal">
+        <div class="eyebrow on-dark">The model</div>
+        <h2 class="h-sec" style="color:#fff;max-width:20ch">The value of one advisor, over 12 months.</h2>
+        <div class="vm-num">$270<span class="u">,000</span></div>
+        <div class="vm-cap">Total value created · per advisor · per year</div>
+
+        <table class="value-table">
+          <thead><tr><th>What you charge your clients</th><th>Calculation</th><th style="text-align:right">Value</th></tr></thead>
+          <tbody>
+            <tr><td>10 strategic advisory engagements</td><td>10 × $3,000</td><td>$30,000</td></tr>
+            <tr><td>Ongoing advice, per engagement</td><td>10 × $2,000/mo × 12</td><td>$240,000</td></tr>
+            <tr class="total"><td>Total, per advisor, per year</td><td></td><td>$270,000</td></tr>
+          </tbody>
+        </table>
+
+        <div class="mult-grid">
+          <div class="mult"><div class="x">22x</div><div class="k">Starter</div><div class="d">$6,000 · 1 advisor</div></div>
+          <div class="mult"><div class="x">44x</div><div class="k">Activate</div><div class="d">$12,000 · 1 advisor</div></div>
+          <div class="mult"><div class="x">84x</div><div class="k">Enterprise</div><div class="d">$32,000 · 10 advisors</div></div>
+          <div class="mult"><div class="x">200x+</div><div class="k">Enterprise year 2</div><div class="d">once training is paid</div></div>
+        </div>
+
+        <p style="margin-top:22px;font-size:12.5px;line-height:1.6;color:var(--lilac);max-width:88ch">
+          Indicative figures, ex-GST. The fees above are what an advisor charges their own clients for
+          strategic advisory engagements and ongoing advice — <strong style="color:#fff">they are not
+          amounts paid to Leaders In Business</strong>. Multipliers compare total value created against
+          what you pay us in year one.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec-pad" id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Buyer questions</div>
+        <h2 class="h-sec">The things firms ask us.</h2>
+      </div>
+      <div class="grid-2">
+        <div class="faq-item reveal">
+          <div class="faq-q"><span class="qm">Q</span>Can I upgrade from Starter?</div>
+          <p class="faq-a">Yes — upgrade to Activate at any time. Starter is designed for self-starters;
+            Activate adds the coaching, the plan for your own business and the Method training.</p>
+        </div>
+        <div class="faq-item reveal d1">
+          <div class="faq-q"><span class="qm">Q</span>How many seats do we get?</div>
+          <p class="faq-a">Starter and Activate include 1–2 seats. Enterprise is licensed for up to 20
+            users. Extra seats on Starter and Activate are priced per seat — ask us for the current rate.</p>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q"><span class="qm">Q</span>What's the commitment?</div>
+          <p class="faq-a">Activate runs for 12 months — that's the arc that takes you from plan to
+            go-to-market and then the full Elevate cycle. Enterprise is a one-off training investment
+            plus a monthly membership.</p>
+        </div>
+        <div class="faq-item reveal d1">
+          <div class="faq-q"><span class="qm">Q</span>Do you work with firms our size?</div>
+          <p class="faq-a">Solo operators through to mid-tier. Enterprise is what we already do with DFK
+            and Lumos — boutique and mid-tier firms moving the whole team to advisory-led.</p>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q"><span class="qm">Q</span>Is this a course or a subscription to a tool?</div>
+          <p class="faq-a">Neither. It's an operating system — the technology, the skills and the
+            community working together. And it's a membership, not a fixed-term program: it runs for as
+            long as you're licensed.</p>
+        </div>
+        <div class="faq-item reveal d1">
+          <div class="faq-q"><span class="qm">Q</span>When can we start?</div>
+          <p class="faq-a">Onboarding is booked before you can drift — sign up, and the call comes within
+            minutes. Activate cohorts start quarterly; the first cohort is 1 Feb 2027, online, any state.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="sec-pad-sm">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <div class="eyebrow on-dark">Get started</div>
+        <h2 class="h-sec" style="max-width:19ch">Which tier is right for your firm?</h2>
+        <p class="lead" style="margin-bottom:28px">Thirty minutes — your firm, not a slide deck. We'll tell
+          you honestly whether this is for you.</p>
+        <div class="hero-actions" style="margin:0">
+          <a href="https://marketing.leadersinbusiness.com.au/book-a-call" class="btn btn-sun btn-lg">Book a demo
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+          </a>
+          <a href="results.html" class="btn btn-on-dark btn-lg">See the value model</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-tag">making advisory <span class="lo">happen.</span></div>
+        <p style="font-size:14.5px;line-height:1.6;max-width:34ch;color:#A7A29B">
+          Good advice is kind of a big deal. We help accounting firms give a lot more of it.
+        </p>
+        <div style="margin-top:20px"><a href="https://advisoryreadinessquiz.scoreapp.com/" class="btn btn-sun btn-sm">Take the readiness quiz</a></div>
+      </div>
+
+      <div>
+        <div class="foot-h">Advisory Lab</div>
+        <ul class="foot-list">
+          <li><a href="advisory-lab.html">The offer</a></li>
+          <li><a href="advisory-lab.html#compare">Compare tiers</a></li>
+          <li><a href="advisory-lab.html#value">The value model</a></li>
+          <li><a href="advisory-lab.html#onboarding">Onboarding</a></li>
+          <li><a href="method.html">The 30-day path</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="foot-h">Platform</div>
+        <ul class="foot-list">
+          <li><a href="platform.html">The Advisory Workspace</a></li>
+          <li><a href="platform.html#modules">Six modules</a></li>
+          <li><a href="platform.html#mike">MIKE, AI co-pilot</a></li>
+          <li><a href="platform.html#benchmarking">SME benchmarking</a></li>
+          <li><a href="results.html">Results</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="foot-h">Company</div>
+        <ul class="foot-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://marketing.leadersinbusiness.com.au/book-a-call">Book a demo</a></li>
+          <li><a href="http://workspace.leadersinbusiness.com.au/">Login</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <div>&copy; <span id="year">2026</span> Leaders In Business. Built in practice, not theory.</div>
+      <div>Better advisors. Better conversations. Better businesses. Better lives.</div>
+    </div>
+  </div>
+</footer>
+<script src="assets/shell.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Leaders In Business",
+  "url": "https://leadersinbusiness.com.au/",
+  "description": "The Strategic Advisory Operating System helps accounting firms operationalise advisory through one connected workspace, methodology and implementation pathway. Structured, paid advisory in 30 days.",
+  "slogan": "Making advisory happen.",
+  "sameAs": [
+    "https://leadersinbusiness.com.au/"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Advisory Lab",
+  "description": "One program, three ways in. The same outcome at every tier — Starter, Activate and Enterprise.",
+  "brand": {
+    "@type": "Organization",
+    "name": "Leaders In Business"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Starter",
+      "priceCurrency": "AUD",
+      "price": "500",
+      "description": "Advisory Workspace licence, Program Onboarding, Monthly Masterclass, Community WhatsApp. 1-2 seats."
+    },
+    {
+      "@type": "Offer",
+      "name": "Activate",
+      "priceCurrency": "AUD",
+      "price": "1000",
+      "description": "Everything in Starter plus monthly group coaching, a plan for your own business (Business by Design) and Advisory Method training. 1-2 seats. 12 months."
+    },
+    {
+      "@type": "Offer",
+      "name": "Enterprise",
+      "priceCurrency": "AUD",
+      "price": "20000",
+      "description": "Firm-wide workspace access, two-day in-house training, 90-day plan embedded in the firm, bespoke support. Up to 20 users."
+    }
+  ]
+}
+</script>
+
+</body>
+</html>

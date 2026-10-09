@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Results — What structure is worth | Leaders In Business</title>
+<meta name="description" content="The value of one advisor, over 12 months: $270,000. Fees you charge your own clients — not what you pay us. Plus what changes when advisory runs on an operating system.">
+<meta property="og:title" content="Results — What structure is worth">
+<meta property="og:description" content="One advisor, running the method properly, generates a six-figure advisory practice inside your existing book.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+/* ---- Results page ---- */
+.value-block{background:var(--purple);border-radius:var(--radius-lg);color:#fff;padding:clamp(32px,4vw,56px);position:relative;overflow:hidden}
+.value-block::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(255,190,68,.34),transparent 66%)}
+.value-block > *{position:relative;z-index:1}
+.vm-num{font-family:var(--font);font-size:clamp(56px,10vw,120px);font-weight:700;letter-spacing:-.05em;line-height:.9;color:#fff}
+.vm-num .u{color:var(--sun)}
+.vm-cap{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lilac);margin-top:10px}
+.value-table{width:100%;border-collapse:collapse;margin-top:26px;font-size:15px}
+.value-table th{text-align:left;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lilac);padding:10px 0;border-bottom:1px solid rgba(255,255,255,.22)}
+.value-table td{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.13);color:#fff}
+.value-table td:last-child{text-align:right;font-family:var(--font);font-weight:700;font-size:17px;letter-spacing:-.02em}
+.value-table tr.total td{border-bottom:0;border-top:2px solid var(--sun);font-size:19px;color:var(--sun)}
+
+.pay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pay{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:28px;position:relative;overflow:hidden}
+.pay .x{font-family:var(--font);font-size:clamp(40px,5vw,58px);font-weight:700;letter-spacing:-.042em;line-height:1;color:var(--purple)}
+.pay .k{font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-mute);margin:10px 0 8px}
+.pay .d{font-size:14px;color:var(--ink-soft);line-height:1.55}
+.pay .calc{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-family:var(--font);font-size:14px;font-weight:700;letter-spacing:-.012em;color:var(--ink-2)}
+
+.out-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.out-n{font-family:var(--font);font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--orange);margin-bottom:9px}
+.out-t{font-size:16.5px;font-weight:700;letter-spacing:-.018em;margin-bottom:6px}
+.out-d{font-size:13.6px;color:var(--ink-mute);line-height:1.5}
+
+.quote-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;height:100%}
+.quote-mark{font-family:var(--font);font-size:52px;font-weight:800;line-height:.6;color:var(--orange-soft);letter-spacing:-.05em}
+.quote-t{font-size:15.2px;line-height:1.6;color:var(--ink-soft);margin:12px 0 18px;flex:1}
+.quote-who{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:15px}
+.quote-av{width:42px;height:42px;border-radius:50%;background:var(--purple);color:#fff;display:grid;place-items:center;font-size:12.5px;font-weight:700;letter-spacing:.03em;flex:none}
+.quote-n{font-size:14px;font-weight:700;letter-spacing:-.012em}
+.quote-r{font-size:11.5px;color:var(--ink-mute);line-height:1.35}
+
+.trust-strip{background:var(--cream);border-radius:var(--radius-lg);padding:clamp(26px,3vw,40px);text-align:center}
+.trust-logos{display:flex;gap:clamp(20px,4vw,52px);flex-wrap:wrap;justify-content:center;margin-top:18px}
+.trust-logos span{font-family:var(--font);font-size:clamp(16px,2vw,21px);font-weight:700;letter-spacing:-.022em;color:var(--ink-2);opacity:.62}
+
+@media (max-width:1024px){
+  .pay-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="wrap nav">
+    <a href="index.html" class="brand" aria-label="Leaders In Business home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2 3 7v6c0 5 3.8 8.2 9 9 5.2-.8 9-4 9-9V7z"/><path d="M9 12l2 2 4-4"/>
+        </svg>
+      </span>
+      <span>
+        <span class="brand-name">Leaders in <span class="lo">Business</span></span>
+        <span class="brand-tag">Making advisory happen</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <div class="nav-item">
+        <a href="platform.html" class="nav-link">Platform
+          <svg class="caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
+        </a>
+        <div class="mega">
+          <div class="mega-grid">
+            <a class="mega-link" href="platform.html">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+              <span><span class="mega-t">The Advisory Workspace <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">One connected environment for every client conversation</span></span>
+            </a>
+            <a class="mega-link" href="platform.html#modules">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span>
+              <span><span class="mega-t">Six modules <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">Discovery, Insights, Goals, Actions, AI, Meetings</span></span>
+            </a>
+            <a class="mega-link" href="platform.html#mike">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg></span>
+              <span><span class="mega-t">MIKE, your AI co-pilot <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">Session prep, Action Plans, progress tracking</span></span>
+            </a>
+            <a class="mega-link" href="platform.html#benchmarking">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+              <span><span class="mega-t">SME benchmarking <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">Aggregated insight across the network</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="advisory-lab.html" class="nav-link">Advisory Lab
+          <svg class="caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
+        </a>
+        <div class="mega">
+          <div class="mega-grid">
+            <a class="mega-link" href="advisory-lab.html">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7v6c0 5 3.8 8.2 9 9 5.2-.8 9-4 9-9V7z"/></svg></span>
+              <span><span class="mega-t">The offer <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">One program, three ways in</span></span>
+            </a>
+            <a class="mega-link" href="advisory-lab.html#compare">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2V5a2 2 0 00-2-2zM19 3h-4a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2V5a2 2 0 00-2-2zM9 13H5a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2v-4a2 2 0 00-2-2zM19 13h-4a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2v-4a2 2 0 00-2-2z"/></svg></span>
+              <span><span class="mega-t">Compare tiers <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">What's in Starter, Activate and Enterprise</span></span>
+            </a>
+            <a class="mega-link" href="advisory-lab.html#value">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>
+              <span><span class="mega-t">The value model <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">$270k per advisor, per year</span></span>
+            </a>
+            <a class="mega-link" href="advisory-lab.html#onboarding">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></span>
+              <span><span class="mega-t">Onboarding <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">Booked in before you can drift</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <a href="method.html" class="nav-link">Method</a>
+      <a href="results.html" class="nav-link">Results</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="https://advisoryreadinessquiz.scoreapp.com/" class="btn btn-ghost btn-sm">Readiness quiz</a>
+      <a href="https://marketing.leadersinbusiness.com.au/book-a-call" class="btn btn-purple btn-sm">Book a demo</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mm-group">
+      <div class="mm-label">Platform</div>
+      <a class="mm-link" href="platform.html">The Advisory Workspace<small>One connected environment</small></a>
+      <a class="mm-link" href="platform.html#modules">Six modules<small>Discovery to Meetings</small></a>
+      <a class="mm-link" href="platform.html#mike">MIKE, your AI co-pilot<small>Prep, plans, tracking</small></a>
+    </div>
+    <div class="mm-group">
+      <div class="mm-label">Advisory Lab</div>
+      <a class="mm-link" href="advisory-lab.html">The offer<small>One program, three ways in</small></a>
+      <a class="mm-link" href="advisory-lab.html#compare">Compare tiers<small>Starter · Activate · Enterprise</small></a>
+      <a class="mm-link" href="advisory-lab.html#value">The value model<small>$270k per advisor, per year</small></a>
+    </div>
+    <div class="mm-group">
+      <div class="mm-label">Company</div>
+      <a class="mm-link" href="method.html">Method<small>The 30-day path</small></a>
+      <a class="mm-link" href="results.html">Results<small>Proof and the model</small></a>
+      <a class="mm-link" href="about.html">About<small>Built in practice</small></a>
+      <a class="mm-link" href="contact.html">Contact<small>Book a demo</small></a>
+    </div>
+    <a href="https://marketing.leadersinbusiness.com.au/book-a-call" class="btn btn-purple btn-lg btn-block" style="margin-top:10px">Book a demo</a>
+    <a href="https://advisoryreadinessquiz.scoreapp.com/" class="btn btn-ghost btn-lg btn-block" style="margin-top:10px">Take the readiness quiz</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="crumbs"><a href="index.html">Home</a><span class="sep">/</span>Results</div>
+      <div class="eyebrow on-dark">Results</div>
+      <h1>What structure is <em>worth.</em></h1>
+      <p class="lead">One advisor, running the method properly, generates a six-figure advisory practice
+        inside your existing book. This is the model.</p>
+    </div>
+  </section>
+
+  <!-- VALUE MODEL -->
+  <section class="sec-pad" id="value">
+    <div class="wrap">
+      <div class="value-block reveal">
+        <div class="eyebrow on-dark">The model</div>
+        <h2 class="h-sec" style="color:#fff;max-width:20ch">The value of one advisor, over 12 months.</h2>
+        <div class="vm-num">$270<span class="u">,000</span></div>
+        <div class="vm-cap">Total value created · per advisor · per year</div>
+
+        <table class="value-table">
+          <thead><tr><th>What you charge your clients</th><th>Calculation</th><th style="text-align:right">Value</th></tr></thead>
+          <tbody>
+            <tr><td>10 strategic advisory engagements</td><td>10 × $3,000</td><td>$30,000</td></tr>
+            <tr><td>Ongoing advice, per engagement</td><td>10 × $2,000/mo × 12</td><td>$240,000</td></tr>
+            <tr class="total"><td>Total, per advisor, per year</td><td></td><td>$270,000</td></tr>
+          </tbody>
+        </table>
+
+        <p style="margin-top:22px;font-size:12.5px;line-height:1.6;color:var(--lilac);max-width:88ch">
+          Indicative figures, ex-GST. The fees above are what an advisor charges their own clients for
+          strategic advisory engagements and ongoing advice — <strong style="color:#fff">they are not
+          amounts paid to Leaders In Business</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGAINST WHAT YOU PAY -->
+  <section class="sec-pad-sm band-cream" id="returns">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Against what you pay, year one</div>
+        <h2 class="h-sec">What the return looks like.</h2>
+        <p class="lead">Multipliers compare total value created against what you pay us in year one.</p>
+      </div>
+
+      <div class="pay-grid">
+        <div class="pay reveal">
+          <div class="x">22x</div>
+          <div class="k">Starter</div>
+          <p class="d">One advisor, running the system themselves — with onboarding, the masterclass and the community around them.</p>
+          <div class="calc">$6,000 · 1 advisor</div>
+        </div>
+        <div class="pay reveal d1">
+          <div class="x">44x</div>
+          <div class="k">Activate</div>
+          <p class="d">One advisor, activated — coaching, their own business plan, Method training and Elevate across 12 months.</p>
+          <div class="calc">$12,000 · 1 advisor</div>
+        </div>
+        <div class="pay reveal d2">
+          <div class="x">84x</div>
+          <div class="k">Enterprise</div>
+          <p class="d">Ten advisors, the whole team advisory-led — two days in-house and a 90-day plan embedded in the firm.</p>
+          <div class="calc">$32,000 · 10 advisors · $2.7M</div>
+        </div>
+      </div>
+
+      <div class="callout sun reveal" style="margin-top:24px">
+        <strong>Enterprise passes 200x from year two</strong> — once the one-off training investment is
+        behind you. Multipliers compare total value created against what you pay us in year one.
+        Indicative figures, ex-GST.
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTCOMES -->
+  <section class="sec-pad" id="outcomes">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">What changes</div>
+        <h2 class="h-sec">What changes when advisory runs on an operating system.</h2>
+        <p class="lead">Structure is what turns good advice into a business. Here's what firms report
+          once the system is running.</p>
+      </div>
+
+      <div class="grid-4">
+        <div class="out-card reveal"><div class="out-n">01</div><div class="out-t">Step beyond compliance, safely</div><p class="out-d">Move up the value chain without exposing the firm to risk you can't manage.</p></div>
+        <div class="out-card reveal"><div class="out-n">02</div><div class="out-t">Stop relying on instinct</div><p class="out-d">A diagnostic framework means the advice is grounded, not improvised.</p></div>
+        <div class="out-card reveal"><div class="out-n">03</div><div class="out-t">Run structured sessions</div><p class="out-d">Every meeting has a clear agenda, a purpose and a defined outcome.</p></div>
+        <div class="out-card reveal"><div class="out-n">04</div><div class="out-t">Turn insight into action</div><p class="out-d">Shared action plans mean recommendations actually get executed.</p></div>
+        <div class="out-card reveal"><div class="out-n">05</div><div class="out-t">Enable your whole team</div><p class="out-d">Advisory stops being one partner's personal gift and becomes a firm capability.</p></div>
+        <div class="out-card reveal"><div class="out-n">06</div><div class="out-t">Share capability beyond partners</div><p class="out-d">Frameworks transfer. Junior staff can deliver work that used to need a principal.</p></div>
+        <div class="out-card reveal"><div class="out-n">07</div><div class="out-t">Price advisory confidently</div><p class="out-d">When you can name the deliverable, you can charge for it — without flinching.</p></div>
+        <div class="out-card reveal"><div class="out-n">08</div><div class="out-t">Build recurring revenue</div><p class="out-d">Advisory becomes an ongoing relationship, not a one-off project you have to resell.</p></div>
+      </div>
+
+      <div class="grid-2" style="margin-top:20px">
+        <div class="out-card reveal" style="border-left:4px solid var(--orange)">
+          <div class="out-n">09</div><div class="out-t">Make advisory repeatable</div>
+          <p class="out-d">Every engagement runs on the same method — so quality doesn't depend on who's in the room.</p>
+        </div>
+        <div class="out-card reveal d1" style="border-left:4px solid var(--purple)">
+          <div class="out-n">10</div><div class="out-t">Scale with confidence</div>
+          <p class="out-d">Capability leaves the top of the firm. The system carries the growth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="sec-pad band-cream" id="proof">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">In their own words</div>
+        <h2 class="h-sec">From compliance to confident advisory.</h2>
+        <p class="lead">What happens when accountants use structure, not instinct, to deliver advisory.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="quote-card reveal">
+          <div class="quote-mark">"</div>
+          <p class="quote-t">I've been advising or talking to clients for 30 years, but doing it better is something that is a bit of a big driver for us to get some satisfaction out of it and take our clients to a better result.</p>
+          <div class="quote-who"><div class="quote-av">PK</div><div><div class="quote-n">Peter Knights</div><div class="quote-r">Principal, Knights Norfolk</div></div></div>
+        </div>
+
+        <div class="quote-card reveal d1">
+          <div class="quote-mark">"</div>
+          <p class="quote-t">From my experience, Leaders in Business offer the platform, framework and training support for Accountants to effectively support their business clients with this important service to add real value.</p>
+          <div class="quote-who"><div class="quote-av">SM</div><div><div class="quote-n">Stephen McHenry CA</div><div class="quote-r">Founding Partner, McHenry Partners</div></div></div>
+        </div>
+
+        <div class="quote-card reveal d2">
+          <div class="quote-mark">"</div>
+          <p class="quote-t">The framework and structure have made such a difference. It's helped me show up with more clarity, give better advice, and really back the small business legends I work with.</p>
+          <div class="quote-who"><div class="quote-av">EA</div><div><div class="quote-n">Ellena Amanatidis</div><div class="quote-r">Senior Client Advisor, SEIVA</div></div></div>
+        </div>
+
+        <div class="quote-card reveal">
+          <div class="quote-mark">"</div>
+          <p class="quote-t">With the structure that I've learned over the last couple of days, it's helped me be able to piece all the different pieces in my mind and put them in a logical sense to be able to package up and deliver to the client.</p>
+          <div class="quote-who"><div class="quote-av">KS</div><div><div class="quote-n">Kate Slater</div><div class="quote-r">CEO / Senior Client Manager, Camtech &amp; Slater Financial Group</div></div></div>
+        </div>
+
+        <div class="quote-card reveal d1">
+          <div class="quote-mark">"</div>
+          <p class="quote-t">The fact that Brent is giving access to this content is a testament to his desire for small businesses to succeed and develop a competitive advantage.</p>
+          <div class="quote-who"><div class="quote-av">CM</div><div><div class="quote-n">Chris Mullins</div><div class="quote-r">Principal, O'Brien Accountants &amp; Advisors</div></div></div>
+        </div>
+
+        <div class="quote-card reveal d2">
+          <div class="quote-mark">"</div>
+          <p class="quote-t">As business owners, we're already really busy. We don't have the time to think about how to structure content, programs and software. This is exactly what this program caters for.</p>
+          <div class="quote-who"><div class="quote-av">SD</div><div><div class="quote-n">Sonny De Silva</div><div class="quote-r">Partner, DS Advisory</div></div></div>
+        </div>
+
+        <div class="quote-card reveal">
+          <div class="quote-mark">"</div>
+          <p class="quote-t">It's definitely put the structure in so that we can provide clients specific outcomes and specific actions to meet their goals, vision and purpose.</p>
+          <div class="quote-who"><div class="quote-av">LS</div><div><div class="quote-n">Liz Shimmin</div><div class="quote-r">CEO, Bluebird Accounting</div></div></div>
+        </div>
+
+        <div class="quote-card reveal d1">
+          <div class="quote-mark">"</div>
+          <p class="quote-t">We can have structure around a product and that we're actually valuing our services rather than just giving away advice and tools for free.</p>
+          <div class="quote-who"><div class="quote-av">RC</div><div><div class="quote-n">Rachel Crowther</div><div class="quote-r">Director, Mintco Business Solutions</div></div></div>
+        </div>
+
+        <div class="quote-card reveal d2">
+          <div class="quote-mark">"</div>
+          <p class="quote-t">The first thing I'm going to do is go back and run the process through my own business, because there are big parts I hadn't covered. I already have clients in mind I can start this with straight away.</p>
+          <div class="quote-who"><div class="quote-av">MB</div><div><div class="quote-n">Miranda Bravo Holland</div><div class="quote-r">Director, Bravo Accountants</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="sec-pad-sm">
+    <div class="wrap">
+      <div class="trust-strip reveal">
+        <div class="eyebrow center">Trusted</div>
+        <h2 style="font-size:clamp(22px,2.6vw,32px);margin:12px 0 6px">Built in practice, not theory.</h2>
+        <p class="lead" style="margin:0 auto;text-align:center">Supported by Australia's top accounting bodies and networks.</p>
+        <div class="trust-logos">
+          <span>CPA Australia</span>
+          <span>Accountants Daily</span>
+          <span>DFK</span>
+          <span>Lumos</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="sec-pad">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <div class="eyebrow on-dark">See it in your firm</div>
+        <h2 class="h-sec" style="max-width:19ch">What would the model look like for you?</h2>
+        <p class="lead" style="margin-bottom:28px">Thirty minutes — your firm, not a slide deck. We'll walk
+          the numbers with you.</p>
+        <div class="hero-actions" style="margin:0">
+          <a href="https://marketing.leadersinbusiness.com.au/book-a-call" class="btn btn-sun btn-lg">Book a demo
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+          </a>
+          <a href="advisory-lab.html#compare" class="btn btn-on-dark btn-lg">Compare tiers</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-tag">making advisory <span class="lo">happen.</span></div>
+        <p style="font-size:14.5px;line-height:1.6;max-width:34ch;color:#A7A29B">
+          Good advice is kind of a big deal. We help accounting firms give a lot more of it.
+        </p>
+        <div style="margin-top:20px"><a href="https://advisoryreadinessquiz.scoreapp.com/" class="btn btn-sun btn-sm">Take the readiness quiz</a></div>
+      </div>
+
+      <div>
+        <div class="foot-h">Advisory Lab</div>
+        <ul class="foot-list">
+          <li><a href="advisory-lab.html">The offer</a></li>
+          <li><a href="advisory-lab.html#compare">Compare tiers</a></li>
+          <li><a href="advisory-lab.html#value">The value model</a></li>
+          <li><a href="advisory-lab.html#onboarding">Onboarding</a></li>
+          <li><a href="method.html">The 30-day path</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="foot-h">Platform</div>
+        <ul class="foot-list">
+          <li><a href="platform.html">The Advisory Workspace</a></li>
+          <li><a href="platform.html#modules">Six modules</a></li>
+          <li><a href="platform.html#mike">MIKE, AI co-pilot</a></li>
+          <li><a href="platform.html#benchmarking">SME benchmarking</a></li>
+          <li><a href="results.html">Results</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="foot-h">Company</div>
+        <ul class="foot-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://marketing.leadersinbusiness.com.au/book-a-call">Book a demo</a></li>
+          <li><a href="http://workspace.leadersinbusiness.com.au/">Login</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <div>&copy; <span id="year">2026</span> Leaders In Business. Built in practice, not theory.</div>
+      <div>Better advisors. Better conversations. Better businesses. Better lives.</div>
+    </div>
+  </div>
+</footer>
+<script src="assets/shell.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Leaders In Business",
+  "url": "https://leadersinbusiness.com.au/",
+  "description": "The Strategic Advisory Operating System helps accounting firms operationalise advisory through one connected workspace, methodology and implementation pathway. Structured, paid advisory in 30 days.",
+  "slogan": "Making advisory happen.",
+  "sameAs": [
+    "https://leadersinbusiness.com.au/"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Advisory Lab",
+  "description": "One program, three ways in. The same outcome at every tier — Starter, Activate and Enterprise.",
+  "brand": {
+    "@type": "Organization",
+    "name": "Leaders In Business"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Starter",
+      "priceCurrency": "AUD",
+      "price": "500",
+      "description": "Advisory Workspace licence, Program Onboarding, Monthly Masterclass, Community WhatsApp. 1-2 seats."
+    },
+    {
+      "@type": "Offer",
+      "name": "Activate",
+      "priceCurrency": "AUD",
+      "price": "1000",
+      "description": "Everything in Starter plus monthly group coaching, a plan for your own business (Business by Design) and Advisory Method training. 1-2 seats. 12 months."
+    },
+    {
+      "@type": "Offer",
+      "name": "Enterprise",
+      "priceCurrency": "AUD",
+      "price": "20000",
+      "description": "Firm-wide workspace access, two-day in-house training, 90-day plan embedded in the firm, bespoke support. Up to 20 users."
+    }
+  ]
+}
+</script>
+
+</body>
+</html>

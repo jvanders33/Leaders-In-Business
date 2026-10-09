@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leadersinbusiness.com.au/sitemap.xml

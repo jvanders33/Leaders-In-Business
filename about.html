@@ -2,155 +2,452 @@
 <html lang="en-AU">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About – Leaders in Business</title>
-<meta name="description" content="Built in practice, proven in real firms. Meet the team backing accountants to lead small business better.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Built in practice, not theory | Leaders In Business</title>
+<meta name="description" content="Good advice is kind of a big deal. We help accounting firms give a lot more of it. Built in practice, not theory — supported by Australia's top accounting bodies and networks.">
+<meta property="og:title" content="About — Leaders In Business">
+<meta property="og:description" content="Making advisory happen. Better advisors. Better conversations. Better businesses. Better lives.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+/* ---- About page ---- */
+.beats{background:var(--orange);padding:clamp(38px,5vw,64px) 0;color:#fff}
+.beats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.beat{font-family:var(--font);font-size:clamp(19px,2.3vw,27px);font-weight:700;letter-spacing:-.028em;line-height:1.14;color:#fff}
+.beat .n{display:block;font-size:11px;font-weight:700;letter-spacing:.2em;color:#FFE0CC;margin-bottom:9px}
+
+.belief{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px}
+.belief .mono-label{color:var(--purple);font-weight:700}
+.belief-t{font-family:var(--font);font-size:21px;font-weight:700;letter-spacing:-.024em;margin:10px 0 8px}
+.belief-d{font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+
+.comm-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:26px;display:flex;flex-direction:column;gap:11px}
+.comm-t{font-size:18px;font-weight:700;letter-spacing:-.02em}
+.comm-d{font-size:14px;color:var(--ink-soft);line-height:1.55}
+
+.quote-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;height:100%}
+.quote-mark{font-family:var(--font);font-size:52px;font-weight:800;line-height:.6;color:var(--orange-soft);letter-spacing:-.05em}
+.quote-t{font-size:15.2px;line-height:1.6;color:var(--ink-soft);margin:12px 0 18px;flex:1}
+.quote-who{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:15px}
+.quote-av{width:42px;height:42px;border-radius:50%;background:var(--purple);color:#fff;display:grid;place-items:center;font-size:12.5px;font-weight:700;flex:none}
+.quote-n{font-size:14px;font-weight:700;letter-spacing:-.012em}
+.quote-r{font-size:11.5px;color:var(--ink-mute);line-height:1.35}
+
+.trust-strip{background:var(--cream);border-radius:var(--radius-lg);padding:clamp(26px,3vw,40px);text-align:center}
+.trust-logos{display:flex;gap:clamp(20px,4vw,52px);flex-wrap:wrap;justify-content:center;margin-top:18px}
+.trust-logos span{font-family:var(--font);font-size:clamp(16px,2vw,21px);font-weight:700;letter-spacing:-.022em;color:var(--ink-2);opacity:.62}
+
+@media (max-width:1024px){ .beats-grid{grid-template-columns:1fr 1fr} }
+@media (max-width:720px){ .beats-grid{grid-template-columns:1fr} }
+</style>
 </head>
 <body>
-<header class="nav">
-  <div class="wrap nav-inner">
-    <a class="brand" href="index.html"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2023/06/logo.svg" alt="Leaders in Business"></a>
-    <nav class="nav-links">
-      <a href="our-program.html">Our Program</a>
-      <a href="pricing.html">Pricing</a>
-      <div class="has-drop"><span>Get Started &#9662;</span>
-        <div class="drop">
-          <a href="https://marketing.leadersinbusiness.com.au/book-a-call">Book a Call</a>
-          <a href="get-started.html#level-1">Level 1 Training</a>
-          <a href="get-started.html#level-2">Level 2 Training</a>
-          <a href="https://advisoryreadinessquiz.scoreapp.com/">Advisory Readiness Quiz</a>
+
+<header class="hdr" id="hdr">
+  <div class="wrap nav">
+    <a href="index.html" class="brand" aria-label="Leaders In Business home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2 3 7v6c0 5 3.8 8.2 9 9 5.2-.8 9-4 9-9V7z"/><path d="M9 12l2 2 4-4"/>
+        </svg>
+      </span>
+      <span>
+        <span class="brand-name">Leaders in <span class="lo">Business</span></span>
+        <span class="brand-tag">Making advisory happen</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <div class="nav-item">
+        <a href="platform.html" class="nav-link">Platform
+          <svg class="caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
+        </a>
+        <div class="mega">
+          <div class="mega-grid">
+            <a class="mega-link" href="platform.html">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+              <span><span class="mega-t">The Advisory Workspace <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">One connected environment for every client conversation</span></span>
+            </a>
+            <a class="mega-link" href="platform.html#modules">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span>
+              <span><span class="mega-t">Six modules <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">Discovery, Insights, Goals, Actions, AI, Meetings</span></span>
+            </a>
+            <a class="mega-link" href="platform.html#mike">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg></span>
+              <span><span class="mega-t">MIKE, your AI co-pilot <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">Session prep, Action Plans, progress tracking</span></span>
+            </a>
+            <a class="mega-link" href="platform.html#benchmarking">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+              <span><span class="mega-t">SME benchmarking <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">Aggregated insight across the network</span></span>
+            </a>
+          </div>
         </div>
       </div>
-      <a href="resources.html">Resources</a>
-      <a href="about.html" aria-current="page">About</a>
+
+      <div class="nav-item">
+        <a href="advisory-lab.html" class="nav-link">Advisory Lab
+          <svg class="caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
+        </a>
+        <div class="mega">
+          <div class="mega-grid">
+            <a class="mega-link" href="advisory-lab.html">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7v6c0 5 3.8 8.2 9 9 5.2-.8 9-4 9-9V7z"/></svg></span>
+              <span><span class="mega-t">The offer <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">One program, three ways in</span></span>
+            </a>
+            <a class="mega-link" href="advisory-lab.html#compare">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2V5a2 2 0 00-2-2zM19 3h-4a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2V5a2 2 0 00-2-2zM9 13H5a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2v-4a2 2 0 00-2-2zM19 13h-4a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2v-4a2 2 0 00-2-2z"/></svg></span>
+              <span><span class="mega-t">Compare tiers <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">What's in Starter, Activate and Enterprise</span></span>
+            </a>
+            <a class="mega-link" href="advisory-lab.html#value">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>
+              <span><span class="mega-t">The value model <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">$270k per advisor, per year</span></span>
+            </a>
+            <a class="mega-link" href="advisory-lab.html#onboarding">
+              <span class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></span>
+              <span><span class="mega-t">Onboarding <svg class="arw" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span><span class="mega-d">Booked in before you can drift</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <a href="method.html" class="nav-link">Method</a>
+      <a href="results.html" class="nav-link">Results</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
+
     <div class="nav-cta">
-      <a class="login" href="https://platform.leadersinbusiness.com.au/">Login</a>
-      <a class="btn btn-ghost" href="contact.html">Contact Us</a>
-      <button class="hamburger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+      <a href="https://advisoryreadinessquiz.scoreapp.com/" class="btn btn-ghost btn-sm">Readiness quiz</a>
+      <a href="https://marketing.leadersinbusiness.com.au/book-a-call" class="btn btn-purple btn-sm">Book a demo</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
-  <div class="mobile-menu" id="mm">
-    <a href="our-program.html">Our Program</a><a href="pricing.html">Pricing</a><a href="get-started.html">Get Started</a>
-    <a href="resources.html">Resources</a><a href="about.html" aria-current="page">About</a>
-    <a href="https://platform.leadersinbusiness.com.au/">Login</a><a href="contact.html">Contact Us</a>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mm-group">
+      <div class="mm-label">Platform</div>
+      <a class="mm-link" href="platform.html">The Advisory Workspace<small>One connected environment</small></a>
+      <a class="mm-link" href="platform.html#modules">Six modules<small>Discovery to Meetings</small></a>
+      <a class="mm-link" href="platform.html#mike">MIKE, your AI co-pilot<small>Prep, plans, tracking</small></a>
+    </div>
+    <div class="mm-group">
+      <div class="mm-label">Advisory Lab</div>
+      <a class="mm-link" href="advisory-lab.html">The offer<small>One program, three ways in</small></a>
+      <a class="mm-link" href="advisory-lab.html#compare">Compare tiers<small>Starter · Activate · Enterprise</small></a>
+      <a class="mm-link" href="advisory-lab.html#value">The value model<small>$270k per advisor, per year</small></a>
+    </div>
+    <div class="mm-group">
+      <div class="mm-label">Company</div>
+      <a class="mm-link" href="method.html">Method<small>The 30-day path</small></a>
+      <a class="mm-link" href="results.html">Results<small>Proof and the model</small></a>
+      <a class="mm-link" href="about.html">About<small>Built in practice</small></a>
+      <a class="mm-link" href="contact.html">Contact<small>Book a demo</small></a>
+    </div>
+    <a href="https://marketing.leadersinbusiness.com.au/book-a-call" class="btn btn-purple btn-lg btn-block" style="margin-top:10px">Book a demo</a>
+    <a href="https://advisoryreadinessquiz.scoreapp.com/" class="btn btn-ghost btn-lg btn-block" style="margin-top:10px">Take the readiness quiz</a>
   </div>
 </header>
-<section class="page-hero">
-  <div class="wrap reveal" style="max-width:900px">
-    <div class="dot"></div>
-    <h1>built in practice. proven in real firms. backing accountants to lead small business better.</h1>
-    <div class="hero-ctas">
-      <a class="btn btn-primary" href="our-program.html">how it works</a>
-      <a class="btn btn-ghost" href="https://marketing.leadersinbusiness.com.au/book-a-call">book a call</a>
-    </div>
-  </div>
-</section>
 
-<section class="wrap">
-  <div class="feature">
-    <div class="feature-media reveal"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2026/02/LIB_Game-Changer_Niko.png" alt="Game changer"></div>
-    <div class="feature-text reveal"><div class="dot"></div><h2>trusted by the accounting profession</h2>
-      <p>Supported by associations and trusted by advisors across the country, Leaders in Business helps accountants deliver strategic advisory with structure, confidence and commercial value.</p>
-      <div class="feature-ctas"><a class="btn btn-primary" href="our-program.html">how it works</a></div>
-    </div>
-  </div>
-  <div class="feature rev">
-    <div class="feature-text reveal"><div class="dot"></div><h2>advisory shouldn't depend on instinct, it should run on a model</h2>
-      <p>Bringing together advisors committed to lifting the standard of advisory, learning from each other and raising the bar across the profession.</p>
-      <div class="feature-ctas"><a class="btn btn-ghost" href="our-program.html">see how</a></div>
-    </div>
-    <div class="feature-media reveal"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2026/02/LIB_Game-Changer_EmilyB.png" alt="Game changer"></div>
-  </div>
-</section>
+<main id="top">
 
-<section class="pad alt">
-  <div class="wrap">
-    <div class="section-head reveal"><div class="dot"></div><h2>the team</h2><p>Strategic advisors, technologists and coaches backing accountants to lead small business better.</p></div>
-    <div class="team-grid">
-      <div class="team-card reveal"><div class="photo"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2025/05/photo-6.png" alt="Brent Szalay"></div><div class="info"><h3>Brent</h3><div class="role">Strategic Advisor &middot; Managing Director &middot; FCPA</div><p class="bio">Brent brings sharp insights, serious energy and a knack for cutting through complexity. He backs business owners and proves Bulldogs fans are relentlessly optimistic.</p><a href="mailto:brent.szalay@leadersinbusiness.com.au">get in touch &rsaquo;</a></div></div>
-      <div class="team-card reveal"><div class="photo"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2025/10/Josh.jpg" alt="Josh Vanderloo"></div><div class="info"><h3>Josh</h3><div class="role">Strategic Advisor</div><p class="bio">If it involves footy, strategy or a whiteboard, Josh is in. With years in elite sport and business advisory, he brings sharp thinking, team-first energy and just the right amount of sideline banter.</p><a href="mailto:josh.vanderloo@leadersinbusiness.com.au">get in touch &rsaquo;</a></div></div>
-      <div class="team-card reveal"><div class="photo"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2026/02/Tim.jpeg" alt="Tim Woodlands"></div><div class="info"><h3>Tim</h3><div class="role">Head of Technology &amp; Transformation</div><p class="bio">A rare blend of technical excellence, creative thinking and genuine curiosity. Known for building smarter solutions and being the first call when something isn't working, he elevates conversations and drives ideas forward.</p><a href="mailto:tim.woodlands@leadersinbusiness.com.au">get in touch &rsaquo;</a></div></div>
-      <div class="team-card reveal"><div class="photo"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2026/02/AdrianBeales.jpg" alt="Adrian Beales"></div><div class="info"><h3>Adrian</h3><div class="role">Head of Business Development</div><p class="bio">People-first and globally minded. With strong roots in Colombia and fluent in Spanish, Adrian connects across cultures and conversations that matter.</p><a href="mailto:adrian.beales@leadersinbusiness.com.au">get in touch &rsaquo;</a></div></div>
-      <div class="team-card reveal"><div class="photo"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2025/10/Marli.jpg" alt="Marli Watt"></div><div class="info"><h3>Marli</h3><div class="role">Executive Leadership Coach</div><p class="bio">Sunshine seeker and tea lover. Marli helps leaders shift what's holding them back — with heart, insight and practical tools.</p><a href="mailto:marli.watt@leadersinbusiness.com.au">get in touch &rsaquo;</a></div></div>
-      <div class="team-card reveal"><div class="photo"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2025/10/stacy.jpg" alt="Stacy Szalay"></div><div class="info"><h3>Stacy</h3><div class="role">Marketing</div><p class="bio">Playful, raw and impossible to ignore, Stacy fuels our marketing and culture with creativity, colour and fun. The kind of energy you'd bottle if you could.</p><a href="mailto:stacy.szalay@leadersinbusiness.com.au">get in touch &rsaquo;</a></div></div>
-      <div class="team-card reveal"><div class="photo"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2026/02/Mandi.jpeg" alt="Mandi Bevan"></div><div class="info"><h3>Mandi</h3><div class="role">Marketing</div><p class="bio">With calm focus, creative smarts and get-it-done energy, Mandi leads with heart and humour — whether it's a campaign, an adventure, a new album or a K-drama rec.</p><a href="mailto:amanda.bevan@leadersinbusiness.com.au">get in touch &rsaquo;</a></div></div>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="crumbs"><a href="index.html">Home</a><span class="sep">/</span>About</div>
+      <div class="eyebrow on-dark">About</div>
+      <h1>Built in practice, <em>not theory.</em></h1>
+      <p class="lead">Good advice is kind of a big deal. We help accounting firms give a lot more of it —
+        and everything we build comes from doing this work in real firms, not theorising about it.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="wrap">
-  <div class="feature">
-    <div class="feature-text reveal"><div class="dot"></div><h2>our why</h2>
-      <p>Advisory doesn't fail because advisors lack skill — it fails because firms lack structure. We built Leaders in Business and the Strategic Advisory Model after seeing the same pattern repeated across firms: advisors were trusted, capable, and already having strategic conversations.</p>
-      <p>But without a clear model, those conversations stayed informal, inconsistent and often undervalued. So we built what we wished existed inside practice — a deliberate way for advisory to be delivered clearly, consistently and in a way clients can trust.</p>
+  <!-- FOUR BEATS -->
+  <section class="beats">
+    <div class="wrap">
+      <div class="beats-grid">
+        <div class="beat reveal"><span class="n">01</span>Better advisors.</div>
+        <div class="beat reveal d1"><span class="n">02</span>Better conversations.</div>
+        <div class="beat reveal d2"><span class="n">03</span>Better businesses.</div>
+        <div class="beat reveal d3"><span class="n">04</span>Better lives.</div>
+      </div>
     </div>
-    <div class="feature-text reveal"><div class="dot"></div><h2>our how</h2>
-      <ul class="checks" style="margin-top:6px">
-        <li><strong>A structured model</strong> — a clear progression into advisory, from first strategy session to confident, firm-wide delivery.</li>
-        <li><strong>Tools that make it deliverable</strong> — frameworks, templates and diagnostics that turn insight into action.</li>
-        <li><strong>Support that makes it stick</strong> — ongoing access to experienced advisors and peers, so good advisory improves over time.</li>
-      </ul>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="pad alt">
-  <div class="wrap">
-    <div class="center reveal"><div class="dot"></div><h2>the advisory movement transforming firms from the inside</h2></div>
-    <div class="testi-grid">
-      <div class="testi reveal"><q>It's definitely put the structure in so that we can provide clients specific outcomes and specific actions to meet their goals, vision and purpose.</q><div class="name">Liz Shimmin</div><div class="role">CEO, Bluebird Accounting</div></div>
-      <div class="testi reveal"><q>Leaders in Business offer the platform, framework and training support for accountants to effectively support their business clients with this important service to add real value.</q><div class="name">Stephen McHenry CA</div><div class="role">Founding Partner, McHenry Partners</div></div>
-      <div class="testi reveal"><q>The framework and structure have made such a difference. It's helped me show up with more clarity, give better advice, and really back the small business legends I work with.</q><div class="name">Ellena Amanatidis</div><div class="role">Senior Client Advisor, SEIVA</div></div>
-      <div class="testi reveal"><q>With the structure I've learned over the last couple of days, it's helped me piece all the different pieces in my mind into a logical sense — to package up and deliver to the client.</q><div class="name">Kate Slater</div><div class="role">CEO / Senior Client Manager, Camtech &amp; Slater Financial Group</div></div>
-      <div class="testi reveal"><q>I've been advising clients for 30 years, but doing it better is a big driver for us — to get some satisfaction out of it and take our clients to a better result.</q><div class="name">Peter Knights</div><div class="role">Principal, Knights Norfolk</div></div>
-      <div class="testi reveal"><q>We can have structure around a product, and we're actually valuing our services rather than just giving away advice and tools for free.</q><div class="name">Rachel Crowther</div><div class="role">Director, Mintco Business Solutions</div></div>
+  <!-- STORY -->
+  <section class="sec-pad" id="story">
+    <div class="wrap split">
+      <div class="reveal">
+        <div class="eyebrow">What we do</div>
+        <h2 class="h-sec">Making advisory happen.</h2>
+        <p class="lead">Most accounting firms already do advisory. They just do it informally — and
+          everything that makes it valuable is exactly what informal work can't deliver.</p>
+        <p class="lead" style="margin-top:14px">Leaders In Business exists to fix that. The Strategic
+          Advisory Operating System gives firms one connected workspace, a proven methodology and an
+          implementation pathway — so advisory becomes structured, paid and repeatable. It's already
+          at work inside networks like DFK and Lumos.</p>
+        <div class="callout purple" style="margin-top:22px">
+          <strong>Our founder Brent</strong> runs the method in practice — including the monthly Elevate
+          accountability group, where he dials in on the 1st of every month for open mic on where firms
+          are at, what's stuck and what's next.
+        </div>
+      </div>
+
+      <div class="reveal d2">
+        <div class="trust-strip" style="text-align:left">
+          <div class="eyebrow">The promise</div>
+          <h3 style="font-size:clamp(22px,2.6vw,30px);letter-spacing:-.025em;margin:12px 0 12px">
+            We help accounting firms give a lot more good advice.
+          </h3>
+          <p style="font-size:15px;color:var(--ink-soft);line-height:1.65">
+            Not more reports. Not more compliance. More of the advice that changes how a business is run —
+            priced properly, delivered on a method, and shared across the whole team.
+          </p>
+          <div class="hero-actions" style="margin:22px 0 0">
+            <a href="https://marketing.leadersinbusiness.com.au/book-a-call" class="btn btn-purple">Book a demo</a>
+            <a href="advisory-lab.html" class="btn btn-ghost">See the offer</a>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
-<footer>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="sec-pad band-cream" id="philosophy">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">How we work</div>
+        <h2 class="h-sec">Three layers, one operating system.</h2>
+        <p class="lead">Not a course. Not a subscription to a tool. A membership, not a fixed-term
+          program — it runs for as long as you're licensed.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="belief reveal">
+          <div class="mono-label">The digital engine</div>
+          <div class="belief-t">Advisory Workspace</div>
+          <p class="belief-d">Where strategic advisory happens. From discovery and planning through to
+            actions, accountability and implementation — every client conversation lives in one
+            connected environment.</p>
+        </div>
+        <div class="belief reveal d1">
+          <div class="mono-label">The skills pathway</div>
+          <div class="belief-t">Advisory Activation</div>
+          <p class="belief-d">The capability that gets you delivering faster. Onboarding and the Advisory
+            Method, group coaching, in-house team training and the Business Hub.</p>
+        </div>
+        <div class="belief reveal d2">
+          <div class="mono-label">The community layer</div>
+          <div class="belief-t">Advisory Club</div>
+          <p class="belief-d">The network that keeps you sharp. Masterclasses, Elevate, events, the
+            Annual Summit and specialist partner access — with a vetted peer network alongside you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section class="sec-pad" id="community">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">The Advisory Club</div>
+        <h2 class="h-sec">The community around the method.</h2>
+        <p class="lead">The tiers only change how much of the Skills Pathway we do with you. The community
+          comes with all of them.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="comm-card reveal">
+          <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></div>
+          <div class="comm-t">Masterclasses &amp; refreshers</div>
+          <p class="comm-d">Monthly masterclasses and method refreshers — learning for everyone in the firm, not just the partners.</p>
+        </div>
+        <div class="comm-card reveal d1">
+          <div class="icon-tile orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg></div>
+          <div class="comm-t">Elevate with Brent</div>
+          <p class="comm-d">The monthly accountability group. Open mic on where you're at, what's stuck, what's next — on the 1st of every month.</p>
+        </div>
+        <div class="comm-card reveal d2">
+          <div class="icon-tile sun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg></div>
+          <div class="comm-t">Events &amp; the Summit</div>
+          <p class="comm-d">Quarterly face-to-face events, the Annual Summit and Pitch Tank — plus Community WhatsApp and a vetted peer network.</p>
+        </div>
+      </div>
+
+      <div class="callout sun reveal" style="margin-top:24px">
+        <strong>Specialist partner access</strong> — capacity, mindset, HR, media, tech and CPA Australia,
+        when the work calls for expertise beyond the method.
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="sec-pad band-cream">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">In their own words</div>
+        <h2 class="h-sec">The people behind the program.</h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="quote-card reveal">
+          <div class="quote-mark">"</div>
+          <p class="quote-t">The fact that Brent is giving access to this content is a testament to his desire for small businesses to succeed and develop a competitive advantage.</p>
+          <div class="quote-who"><div class="quote-av">CM</div><div><div class="quote-n">Chris Mullins</div><div class="quote-r">Principal, O'Brien Accountants &amp; Advisors</div></div></div>
+        </div>
+        <div class="quote-card reveal d1">
+          <div class="quote-mark">"</div>
+          <p class="quote-t">As business owners, we're already really busy. We don't have the time to think about how to structure content, programs and software. This is exactly what this program caters for.</p>
+          <div class="quote-who"><div class="quote-av">SD</div><div><div class="quote-n">Sonny De Silva</div><div class="quote-r">Partner, DS Advisory</div></div></div>
+        </div>
+        <div class="quote-card reveal d2">
+          <div class="quote-mark">"</div>
+          <p class="quote-t">From my experience, Leaders in Business offer the platform, framework and training support for Accountants to effectively support their business clients with this important service to add real value.</p>
+          <div class="quote-who"><div class="quote-av">SM</div><div><div class="quote-n">Stephen McHenry CA</div><div class="quote-r">Founding Partner, McHenry Partners</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="sec-pad-sm">
+    <div class="wrap">
+      <div class="trust-strip reveal">
+        <div class="eyebrow center">Trusted</div>
+        <h2 style="font-size:clamp(22px,2.6vw,32px);margin:12px 0 6px">Supported by the networks you trust.</h2>
+        <p class="lead" style="margin:0 auto;text-align:center">Built in practice, not theory. Supported by
+          Australia's top accounting bodies and networks.</p>
+        <div class="trust-logos">
+          <span>CPA Australia</span>
+          <span>Accountants Daily</span>
+          <span>DFK</span>
+          <span>Lumos</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="sec-pad">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <div class="eyebrow on-dark">Come and see</div>
+        <h2 class="h-sec" style="max-width:19ch">Making advisory happen.</h2>
+        <p class="lead" style="margin-bottom:28px">Better advisors. Better conversations. Better businesses.
+          Better lives.</p>
+        <div class="hero-actions" style="margin:0">
+          <a href="https://marketing.leadersinbusiness.com.au/book-a-call" class="btn btn-sun btn-lg">Book a demo
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+          </a>
+          <a href="https://advisoryreadinessquiz.scoreapp.com/" class="btn btn-on-dark btn-lg">Take the readiness quiz</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-tag">making advisory <span class="lo">happen.</span></div>
+        <p style="font-size:14.5px;line-height:1.6;max-width:34ch;color:#A7A29B">
+          Good advice is kind of a big deal. We help accounting firms give a lot more of it.
+        </p>
+        <div style="margin-top:20px"><a href="https://advisoryreadinessquiz.scoreapp.com/" class="btn btn-sun btn-sm">Take the readiness quiz</a></div>
+      </div>
+
       <div>
-        <a class="brand" href="index.html"><img src="https://leadersinbusiness.com.au/wp-content/uploads/2023/06/leaders-in-business-logo-1.svg" alt="Leaders in Business"></a>
-        <p class="tag">A structured advisory program for those who give a damn about small businesses.</p>
+        <div class="foot-h">Advisory Lab</div>
+        <ul class="foot-list">
+          <li><a href="advisory-lab.html">The offer</a></li>
+          <li><a href="advisory-lab.html#compare">Compare tiers</a></li>
+          <li><a href="advisory-lab.html#value">The value model</a></li>
+          <li><a href="advisory-lab.html#onboarding">Onboarding</a></li>
+          <li><a href="method.html">The 30-day path</a></li>
+        </ul>
       </div>
-      <div class="foot-nav">
-        <a href="our-program.html">Our Program</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="get-started.html#level-1">Level 1 Training</a>
-        <a href="get-started.html#level-2">Level 2 Training</a>
-        <a href="about.html" aria-current="page">About</a>
-        <a href="resources.html">Resources</a>
-        <a href="contact.html">Contact</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+
+      <div>
+        <div class="foot-h">Platform</div>
+        <ul class="foot-list">
+          <li><a href="platform.html">The Advisory Workspace</a></li>
+          <li><a href="platform.html#modules">Six modules</a></li>
+          <li><a href="platform.html#mike">MIKE, AI co-pilot</a></li>
+          <li><a href="platform.html#benchmarking">SME benchmarking</a></li>
+          <li><a href="results.html">Results</a></li>
+        </ul>
       </div>
-      <div class="foot-news">
-        <label>Free Learning</label>
-        <p>Practical insights on advisory, strategy and firm leadership — delivered without the noise.</p>
-        <form class="news-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="newsletter">
-          <p class="hp"><label>Skip<input name="bot-field"></label></p>
-          <input type="email" name="email" placeholder="Your email" required>
-          <button class="btn btn-cta" type="submit">Submit</button>
-        </form>
+
+      <div>
+        <div class="foot-h">Company</div>
+        <ul class="foot-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://marketing.leadersinbusiness.com.au/book-a-call">Book a demo</a></li>
+          <li><a href="http://workspace.leadersinbusiness.com.au/">Login</a></li>
+        </ul>
       </div>
     </div>
+
     <div class="foot-bottom">
-      <span>&copy; 2026 Leaders in Business</span>
-      <div class="socials">
-        <a href="https://www.facebook.com/leadersinbusinessau" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H9v3h2v7h3v-7h2.5l.5-3H14v-1.5c0-.6.3-1 1-1z"/></svg></a>
-        <a href="https://www.instagram.com/leadersinbusiness" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="currentColor"/></svg></a>
-        <a href="https://www.linkedin.com/company/leadersinbusiness" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 9v9H3V9h3zM4.5 3a1.7 1.7 0 110 3.4 1.7 1.7 0 010-3.4zM21 18h-3v-4.7c0-1.2-.4-2-1.5-2-.8 0-1.3.6-1.5 1.1-.1.2-.1.5-.1.7V18h-3V9h3v1.3c.4-.6 1.1-1.5 2.8-1.5 2 0 3.5 1.3 3.5 4.2V18z"/></svg></a>
-      </div>
+      <div>&copy; <span id="year">2026</span> Leaders In Business. Built in practice, not theory.</div>
+      <div>Better advisors. Better conversations. Better businesses. Better lives.</div>
     </div>
   </div>
 </footer>
-<script src="assets/script.js"></script>
+<script src="assets/shell.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Leaders In Business",
+  "url": "https://leadersinbusiness.com.au/",
+  "description": "The Strategic Advisory Operating System helps accounting firms operationalise advisory through one connected workspace, methodology and implementation pathway. Structured, paid advisory in 30 days.",
+  "slogan": "Making advisory happen.",
+  "sameAs": [
+    "https://leadersinbusiness.com.au/"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Advisory Lab",
+  "description": "One program, three ways in. The same outcome at every tier — Starter, Activate and Enterprise.",
+  "brand": {
+    "@type": "Organization",
+    "name": "Leaders In Business"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Starter",
+      "priceCurrency": "AUD",
+      "price": "500",
+      "description": "Advisory Workspace licence, Program Onboarding, Monthly Masterclass, Community WhatsApp. 1-2 seats."
+    },
+    {
+      "@type": "Offer",
+      "name": "Activate",
+      "priceCurrency": "AUD",
+      "price": "1000",
+      "description": "Everything in Starter plus monthly group coaching, a plan for your own business (Business by Design) and Advisory Method training. 1-2 seats. 12 months."
+    },
+    {
+      "@type": "Offer",
+      "name": "Enterprise",
+      "priceCurrency": "AUD",
+      "price": "20000",
+      "description": "Firm-wide workspace access, two-day in-house training, 90-day plan embedded in the firm, bespoke support. Up to 20 users."
+    }
+  ]
+}
+</script>
+
 </body>
 </html>
